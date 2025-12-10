@@ -1,0 +1,3 @@
+[submodule "CNN/nnom_master"]
+	path = CNN/nnom_master
+	url = https://github.com/majianjia/nnom.git

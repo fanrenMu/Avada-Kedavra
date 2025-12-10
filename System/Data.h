@@ -1,6 +1,7 @@
 #ifndef __DATA_H
 #define __DATA_H
 
+#include <stdint.h>
 typedef struct {
     int16_t AX;
     int16_t AY;

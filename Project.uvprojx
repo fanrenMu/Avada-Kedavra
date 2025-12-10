@@ -10,7 +10,7 @@
       <TargetName>Target 1</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060528::V5.06 update 5 (build 528)::ARMCC</pCCUsed>
+      <pCCUsed>5060750::V5.06 update 6 (build 750)::ARMCC</pCCUsed>
       <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -133,12 +133,12 @@
             <UseExternalTool>0</UseExternalTool>
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>1</UpdateFlashBeforeDebugging>
-            <Capability>0</Capability>
-            <DriverSelection>-1</DriverSelection>
+            <Capability>1</Capability>
+            <DriverSelection>4096</DriverSelection>
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\UL2CM3.DLL</Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -184,10 +184,11 @@
             <hadXRAM>0</hadXRAM>
             <uocXRam>0</uocXRam>
             <RvdsVP>0</RvdsVP>
+            <RvdsMve>0</RvdsMve>
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
-            <useUlib>0</useUlib>
+            <useUlib>1</useUlib>
             <EndSel>0</EndSel>
             <uLtcg>0</uLtcg>
             <nSecure>0</nSecure>
@@ -324,9 +325,10 @@
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
             <uC99>1</uC99>
+            <uGnu>0</uGnu>
             <useXO>0</useXO>
-            <v6Lang>1</v6Lang>
-            <v6LangP>1</v6LangP>
+            <v6Lang>3</v6Lang>
+            <v6LangP>3</v6LangP>
             <vShortEn>1</vShortEn>
             <vShortWch>1</vShortWch>
             <v6Lto>0</v6Lto>
@@ -336,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>.\Start;.\Library;.\User;.\System;.\Hardware</IncludePath>
+              <IncludePath>.\Start;.\Library;.\User;.\System;.\Hardware;.\CNN\nnom_lib\inc;.\CNN\nnom_lib\port;.\CNN\nnom_lib\src;.\CNN;.\CNN\nnom_lib\inc\layers</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -754,6 +756,326 @@
               <FileName>stm32f10x_it.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\User\stm32f10x_it.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>nnom</GroupName>
+          <Files>
+            <File>
+              <FileName>weights.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\CNN\weights.h</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_activation.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\CNN\nnom_lib\inc\layers\nnom_activation.h</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_avgpool.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\CNN\nnom_lib\inc\layers\nnom_avgpool.h</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_baselayer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\CNN\nnom_lib\inc\layers\nnom_baselayer.h</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_concat.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\CNN\nnom_lib\inc\layers\nnom_concat.h</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_conv2d.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\CNN\nnom_lib\inc\layers\nnom_conv2d.h</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_conv2d_trans.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\CNN\nnom_lib\inc\layers\nnom_conv2d_trans.h</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_cropping.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\CNN\nnom_lib\inc\layers\nnom_cropping.h</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_dense.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\CNN\nnom_lib\inc\layers\nnom_dense.h</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_dw_conv2d.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\CNN\nnom_lib\inc\layers\nnom_dw_conv2d.h</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_flatten.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\CNN\nnom_lib\inc\layers\nnom_flatten.h</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_global_pool.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\CNN\nnom_lib\inc\layers\nnom_global_pool.h</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_gru_cell.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\CNN\nnom_lib\inc\layers\nnom_gru_cell.h</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_input.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\CNN\nnom_lib\inc\layers\nnom_input.h</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_lambda.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\CNN\nnom_lib\inc\layers\nnom_lambda.h</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_lstm_cell.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\CNN\nnom_lib\inc\layers\nnom_lstm_cell.h</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_matrix.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\CNN\nnom_lib\inc\layers\nnom_matrix.h</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_maxpool.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\CNN\nnom_lib\inc\layers\nnom_maxpool.h</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_output.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\CNN\nnom_lib\inc\layers\nnom_output.h</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_reshape.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\CNN\nnom_lib\inc\layers\nnom_reshape.h</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_rnn.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\CNN\nnom_lib\inc\layers\nnom_rnn.h</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_simple_cell.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\CNN\nnom_lib\inc\layers\nnom_simple_cell.h</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_softmax.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\CNN\nnom_lib\inc\layers\nnom_softmax.h</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_sumpool.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\CNN\nnom_lib\inc\layers\nnom_sumpool.h</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_upsample.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\CNN\nnom_lib\inc\layers\nnom_upsample.h</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_zero_padding.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\CNN\nnom_lib\inc\layers\nnom_zero_padding.h</FilePath>
+            </File>
+            <File>
+              <FileName>nnom.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\CNN\nnom_lib\inc\nnom.h</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_layers.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\CNN\nnom_lib\inc\nnom_layers.h</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_local.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\CNN\nnom_lib\inc\nnom_local.h</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_tensor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\CNN\nnom_lib\inc\nnom_tensor.h</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_utils.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\CNN\nnom_lib\inc\nnom_utils.h</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_port.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\CNN\nnom_lib\port\nnom_port.h</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_local.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\CNN\nnom_lib\src\backends\nnom_local.c</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_local_q15.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\CNN\nnom_lib\src\backends\nnom_local_q15.c</FilePath>
+            </File>
+            <File>
+              <FileName>nnom.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\CNN\nnom_lib\src\core\nnom.c</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_layers.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\CNN\nnom_lib\src\core\nnom_layers.c</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_tensor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\CNN\nnom_lib\src\core\nnom_tensor.c</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_utils.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\CNN\nnom_lib\src\core\nnom_utils.c</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_activation.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\CNN\nnom_lib\src\layers\nnom_activation.c</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_avgpool.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\CNN\nnom_lib\src\layers\nnom_avgpool.c</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_baselayer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\CNN\nnom_lib\src\layers\nnom_baselayer.c</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_concat.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\CNN\nnom_lib\src\layers\nnom_concat.c</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_conv2d.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\CNN\nnom_lib\src\layers\nnom_conv2d.c</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_conv2d_trans.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\CNN\nnom_lib\src\layers\nnom_conv2d_trans.c</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_cropping.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\CNN\nnom_lib\src\layers\nnom_cropping.c</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_dense.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\CNN\nnom_lib\src\layers\nnom_dense.c</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_dw_conv2d.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\CNN\nnom_lib\src\layers\nnom_dw_conv2d.c</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_flatten.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\CNN\nnom_lib\src\layers\nnom_flatten.c</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_global_pool.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\CNN\nnom_lib\src\layers\nnom_global_pool.c</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_gru_cell.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\CNN\nnom_lib\src\layers\nnom_gru_cell.c</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_input.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\CNN\nnom_lib\src\layers\nnom_input.c</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_lambda.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\CNN\nnom_lib\src\layers\nnom_lambda.c</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_lstm_cell.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\CNN\nnom_lib\src\layers\nnom_lstm_cell.c</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_matrix.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\CNN\nnom_lib\src\layers\nnom_matrix.c</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_maxpool.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\CNN\nnom_lib\src\layers\nnom_maxpool.c</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_output.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\CNN\nnom_lib\src\layers\nnom_output.c</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_reshape.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\CNN\nnom_lib\src\layers\nnom_reshape.c</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_rnn.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\CNN\nnom_lib\src\layers\nnom_rnn.c</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_simple_cell.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\CNN\nnom_lib\src\layers\nnom_simple_cell.c</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_softmax.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\CNN\nnom_lib\src\layers\nnom_softmax.c</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_sumpool.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\CNN\nnom_lib\src\layers\nnom_sumpool.c</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_upsample.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\CNN\nnom_lib\src\layers\nnom_upsample.c</FilePath>
+            </File>
+            <File>
+              <FileName>nnom_zero_padding.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\CNN\nnom_lib\src\layers\nnom_zero_padding.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -2,6 +2,7 @@
 #define __SERIAL_H
 
 #include <stdio.h>
+#include <stdint.h>
 
 void Serial_Init(void);
 void Serial_SendByte(uint8_t Byte);

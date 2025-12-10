@@ -4,40 +4,91 @@
 #include "Serial.h"
 #include "MPU6050.h"
 #include "Data.h"
+#include "nnom.h"
+#include "weights.h"
+#include "Key.h"
 
-MPU6050Data mpu[10];
+#define AVAILABLE 0
+#define SAMPLING 1
+#define SAMPLED 2
+#ifdef NNOM_USING_STATIC_MEMORY
+	uint8_t static_buf[1024 * 8];
+#endif //NNOM_USING_STATIC_MEMORY
+
+MPU6050Data mpu[150];
+volatile int mpustatus;
 int16_t AY_m = -40;
+
+nnom_model_t *model;
+
+void model_feed_data(void);
 
 int main(void)
 {
-	
 	OLED_Init();
 	OLED_Clear();
 	Serial_Init();
 	MPU6050_Init();
+	Key_Init();
 	
-	//uint8_t order[]={0x68,0x08,0x00,0xFF,0x10,0x00,0x0F,0x16};
-	//uint8_t order[]={0x68,0x08,0x00,0xFF,0x10,0x01,0x10,0x16};
-	//uint8_t order_2[]={0x68,0x08,0x00,0xFF,0x12,0x00,0x11,0x16};
-	uint8_t order[]={0x68,0x08,0x00,0xFF,0x12,0x00,0x11,0x16};
-	uint8_t order_2[]={0x68,0x08,0x00,0xFF,0x12,0x01,0x12,0x16};
-	//Serial_SendArray(order,8);
-	Delay_s(1);
-	//Serial_SendArray(order_2,8);
+	OLED_ShowString(1,1,"init");
+
+    #ifdef NNOM_USING_STATIC_MEMORY
+		nnom_set_static_buf(static_buf, sizeof(static_buf)); 
+	#endif //NNOM_USING_STATIC_MEMORY
+
+	model = nnom_model_create();
+	OLED_ShowString(1,5,"create");
+	mpustatus = AVAILABLE;
+	
 	while (1)
 	{
-//		if(AY-AY_m>300){
-//			Serial_SendArray(order,8);
-//		}
-//		if(AY-AY_m<-300){
-//			Serial_SendArray(order_2,8);
-//		}
-		MPU6050_GetDataArray(mpu,10);
-		OLED_ShowSignedNum(2, 1, mpu[0].AX, 5);
-		OLED_ShowSignedNum(3, 1, mpu[0].AY-AY_m, 5);
-		OLED_ShowSignedNum(4, 1, mpu[0].AZ, 5);
-		OLED_ShowSignedNum(2, 8, mpu[0].GX, 5);
-		OLED_ShowSignedNum(3, 8, mpu[0].GY, 5);
-		OLED_ShowSignedNum(4, 8, mpu[0].GZ, 5);
+		if(mpustatus == SAMPLING){
+			OLED_ShowString(2,1,"ing");
+			MPU6050_GetDataArray(mpu,150);
+			mpustatus = SAMPLED;
+			//OLED_Clear();
+			OLED_ShowString(2,4,"ed");
+//			OLED_ShowNum(3,2,mpu[2].AX,3);
+//			OLED_ShowNum(3,6,mpu[2].AY,3);
+//			OLED_ShowNum(3,10,mpu[2].AZ,3);
+			model_feed_data();
+			OLED_ShowString(3,1,"feed");
+			model_run(model);
+			OLED_ShowString(3,6,"run");
+			
+			int8_t max_output = -128;
+			int8_t ret = 0;
+			for(int i = 0; i < 13;i++){
+				if(nnom_output_data[i] >= max_output){
+					max_output = nnom_output_data[i] ;
+					ret = i;
+				}
+				OLED_ShowNum(4,1,(uint32_t)ret,2);
+			}
+
+		}
+
+	}
+
+}
+
+void model_feed_data(void)
+{
+	const double scale = 16;
+	uint16_t i = 0;
+	for(i = 0; i < 150;i++){
+		nnom_input_data[i*3] = (int8_t)round(mpu[i].GX * scale);
+		nnom_input_data[i*3+1] = (int8_t)round(mpu[i].GY * scale);
+		nnom_input_data[i*3+2] = (int8_t)round(mpu[i].GZ * scale);
+	}
+}
+
+void EXTI15_10_IRQHandler(void){
+	if(EXTI_GetITStatus(EXTI_Line12)==SET){
+		mpustatus = SAMPLING;
+		//OLED_Clear();
+
+		EXTI_ClearITPendingBit(EXTI_Line12);
 	}
 }
