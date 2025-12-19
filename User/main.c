@@ -38,21 +38,21 @@ int main(void)
 	#endif //NNOM_USING_STATIC_MEMORY
 
 	model = nnom_model_create();
-	OLED_ShowString(1,5,"create");
+	OLED_ShowString(1,6,"create");
 	mpustatus = AVAILABLE;
 	
-	//MPU6050_GetDataArray(mpu,150);
+	MPU6050_GetDataArray(mpu,150);
 	model_feed_data();
 	model_run(model);
 	
 	while (1)
 	{
 		if(mpustatus == SAMPLING){
-			OLED_ShowString(2,1,"ing");
+//			OLED_ShowString(1,3,"ng");
 			MPU6050_GetDataArray(mpu,150);
 			mpustatus = SAMPLED;
 			//OLED_Clear();
-			OLED_ShowString(2,4,"ed");
+			OLED_ShowString(2,1,"sampled");
 //			OLED_ShowNum(3,2,mpu[2].AX,3);
 //			OLED_ShowNum(3,6,mpu[2].AY,3);
 //			OLED_ShowNum(3,10,mpu[2].AZ,3);
@@ -86,7 +86,8 @@ void model_feed_data(void)
 {
 	const double scale = 32;
 	uint16_t i = 0;
-	Serial_SendString("INPUT:");
+//	Serial_SendString("INPUT:");
+	Serial_SendString("IMU\n");
 	for(i = 0; i < 150;i++){
 		float Gx = mpu[i].GX/8192.0;
 		float Gy = mpu[i].GY/8192.0;
@@ -95,15 +96,25 @@ void model_feed_data(void)
 		nnom_input_data[i*3+1] = (int8_t)round(Gy * scale);
 		nnom_input_data[i*3+2] = (int8_t)round(Gz * scale);
 		
+
+//		  OLED_ShowNum(3,2,mpu[2].AX,3);
+//			OLED_ShowNum(3,6,mpu[2].AY,3);
+//			OLED_ShowNum(3,10,mpu[2].AZ,3);
 //		Serial_SendNumber(i,3);
 //		Serial_SendString("  :  ");
-//		Serial_SendNumber(nnom_input_data[i*3],4);
-//		Serial_SendString("   ");
-//		Serial_SendNumber(nnom_input_data[i*3+1],4);
-//		Serial_SendString("   ");
-//		Serial_SendNumber(nnom_input_data[i*3+2],4);
-//		Serial_SendString("   ");
-//		Serial_SendString("\r\n");
+		Serial_SendNumber(mpu[i].AX,6);
+		Serial_SendString(" ");
+		Serial_SendNumber(mpu[i].AY,6);
+		Serial_SendString(" ");
+		Serial_SendNumber(mpu[i].AZ,6);
+		Serial_SendString(" ");
+		Serial_SendNumber(mpu[i].GX,6);
+		Serial_SendString(" ");
+		Serial_SendNumber(mpu[i].GY,6);
+		Serial_SendString(" ");
+		Serial_SendNumber(mpu[i].GZ,6);
+		Serial_SendString(" ");
+		Serial_SendString("\r");
 
 	}
 }
