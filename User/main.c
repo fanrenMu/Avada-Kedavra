@@ -1,49 +1,8 @@
-#include "stm32f10x.h"                  // Device header
-#include "Delay.h"
-#include "OLED.h"
-#include "Serial.h"
-#include "MPU6050.h"
-#include "Data.h"
-#include "nnom.h"
-#include "weights.h"
-#include "Key.h"
-
-#define AVAILABLE 0
-#define SAMPLING 1
-#define SAMPLED 2
-#ifdef NNOM_USING_STATIC_MEMORY
-	uint8_t static_buf[1024 * 8];
-#endif //NNOM_USING_STATIC_MEMORY
-
-MPU6050Data mpu[150];
-volatile int mpustatus;
-int16_t AY_m = -40;
-
-nnom_model_t *model;
-
-void model_feed_data(void);
+#include "main.h"
 
 int main(void)
 {
-	OLED_Init();
-	OLED_Clear();
-	Serial_Init();
-	MPU6050_Init();
-	Key_Init();
-	
-	OLED_ShowString(1,1,"init");
-
-    #ifdef NNOM_USING_STATIC_MEMORY
-		nnom_set_static_buf(static_buf, sizeof(static_buf)); 
-	#endif //NNOM_USING_STATIC_MEMORY
-
-	model = nnom_model_create();
-	OLED_ShowString(1,5,"create");
-	mpustatus = AVAILABLE;
-	
-	//MPU6050_GetDataArray(mpu,150);
-	//model_feed_data();
-	//model_run(model);
+	SYS_INIT();
 	
 	while (1)
 	{
@@ -51,29 +10,31 @@ int main(void)
 			OLED_ShowString(2,1,"ing");
 			MPU6050_GetDataArray(mpu,150);
 			mpustatus = SAMPLED;
-			//OLED_Clear();
-			OLED_ShowString(2,4,"ed");
-//			OLED_ShowNum(3,2,mpu[2].AX,3);
-//			OLED_ShowNum(3,6,mpu[2].AY,3);
-//			OLED_ShowNum(3,10,mpu[2].AZ,3);
+			OLED_ShowString(2,4,"ed");       //get data from imu
+			
 			model_feed_data();
 			OLED_ShowString(3,1,"feed");
 			model_run(model);
-			OLED_ShowString(3,6,"run");
+			OLED_ShowString(3,6,"run");      //feed data to model
 			
-			int8_t max_output = -128;
-			int8_t ret = 0;
-			for(int i = 0; i < 13;i++){
-				
-//				Serial_SendNumber(i,2);
-//				Serial_SendString("data:");
-//				Serial_SendNumber(nnom_output_data[i],4);
-//				Serial_SendString("\r\n");
-				if(nnom_output_data[i] >= max_output){
-					max_output = nnom_output_data[i] ;
-					ret = i;
-				}
-				OLED_ShowNum(4,1,(uint32_t)ret,2);
+			model_output = model_get_output();
+			OLED_ShowNum(4,1,(uint32_t)model_output,2);
+			
+			switch(model_output){
+				case Unrecognized:
+					OLED_ShowString(4,4,"Unrecognized");
+					break;
+				case Circle:
+					Serial_SendArray(turn_on,8);
+					OLED_ShowString(4,4,"Circle");
+				  break;
+				case Wave:
+					Serial_SendArray(turn_off,8);
+					OLED_ShowString(4,4,"Wave");
+				  break;
+				default:
+					OLED_ShowString(4,4,"none");
+					break;
 			}
 
 		}
@@ -82,8 +43,7 @@ int main(void)
 
 }
 
-void model_feed_data(void)
-{
+void model_feed_data(void){
 	const double scale = 32;
 	uint16_t i = 0;
 	Serial_SendString("IMU\n");
@@ -110,30 +70,42 @@ void model_feed_data(void)
 		Serial_SendString(" ");
 		
 		Serial_SendString("\n");
-//		Serial_SendString("\n");
-//		Serial_SendFloat(Gx);
-//		Serial_SendString("   ");
-//		Serial_AutoSendNumber(mpu[i].GX);
-//		Serial_SendString("   ");
-//		Serial_SendNumber(mpu[i].GX,6);
-//		Serial_SendString("\n");
-//		Serial_SendNumber(i,3);
-//		Serial_SendString("  :  ");
-//		Serial_SendNumber(nnom_input_data[i*3],4);
-//		Serial_SendString("   ");
-//		Serial_SendNumber(nnom_input_data[i*3+1],4);
-//		Serial_SendString("   ");
-//		Serial_SendNumber(nnom_input_data[i*3+2],4);
-//		Serial_SendString("   ");
-//		Serial_SendString("\r\n");
-
 	}
+}
+
+void SYS_INIT(void){
+	  #ifdef NNOM_USING_STATIC_MEMORY
+			nnom_set_static_buf(static_buf, sizeof(static_buf)); 
+		#endif //NNOM_USING_STATIC_MEMORY
+	
+		OLED_Init();
+		OLED_Clear();
+		Serial_Init();
+		MPU6050_Init();
+		Key_Init();
+		mpustatus = AVAILABLE;         
+		OLED_ShowString(1,1,"init");   //hardware init
+	
+		model = nnom_model_create();
+		OLED_ShowString(1,5,"create"); //model init
+}
+
+int8_t model_get_output(void){
+		int8_t max_output = -128;
+			int8_t ret = 0;
+			for(int i = 0; i < 13;i++){
+				if(nnom_output_data[i] >= max_output){
+					max_output = nnom_output_data[i] ;
+					ret = i;
+				}
+			}
+		return ret;
 }
 
 void EXTI15_10_IRQHandler(void){
 	if(EXTI_GetITStatus(EXTI_Line12)==SET){
+		
 		mpustatus = SAMPLING;
-		//OLED_Clear();
 
 		EXTI_ClearITPendingBit(EXTI_Line12);
 	}
