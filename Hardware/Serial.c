@@ -68,6 +68,62 @@ void Serial_SendNumber(uint32_t Number, uint8_t Length)
 	}
 }
 
+void Serial_AutoSendNumber(uint32_t Number)
+{
+    uint8_t temp[10]; // uint32_t 最大是 4,294,967,295，共 10 位
+    uint8_t i = 0;
+
+    // 处理 Number 为 0 的特殊情况
+    if (Number == 0)
+    {
+        Serial_SendByte('0');
+        return;
+    }
+
+    // 循环取模，存入数组（此时是倒序：个位、十位...）
+    while (Number > 0)
+    {
+        temp[i++] = Number % 10 + '0';
+        Number /= 10;
+    }
+
+    // 反向遍历数组，发送数据
+    while (i > 0)
+    {
+        Serial_SendByte(temp[--i]);
+    }
+}
+
+void Serial_SendFloat(float Number)
+{
+    // 1. 处理负数
+    if (Number < 0)
+    {
+        Serial_SendByte('-');
+        Number = -Number;
+    }
+
+    // 2. 提取并发送整数部分
+    uint32_t IntPart = (uint32_t)Number;
+    Serial_AutoSendNumber(IntPart); // 调用之前写好的整数发送函数
+
+    // 3. 发送小数点
+    Serial_SendByte('.');
+
+    // 4. 提取并发送小数部分（假设保留2位）
+    // +0.005 是为了四舍五入，防止 0.199999 变成 0.19
+    uint32_t DecPart = (uint32_t)((Number - IntPart) * 1000000 + 0.5);
+
+    // 5. 特殊处理：补齐小数位的 0
+    // 如果小数部分是 0.05，乘以100后得到 5，直接打印会变成 .5，所以需要补0
+    if (DecPart < 10)
+    {
+        Serial_SendByte('0');
+    }
+    
+    Serial_AutoSendNumber(DecPart);
+}
+
 int fputc(int ch, FILE *f)
 {
 	Serial_SendByte(ch);

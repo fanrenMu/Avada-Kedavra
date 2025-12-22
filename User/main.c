@@ -42,8 +42,8 @@ int main(void)
 	mpustatus = AVAILABLE;
 	
 	//MPU6050_GetDataArray(mpu,150);
-	model_feed_data();
-	model_run(model);
+	//model_feed_data();
+	//model_run(model);
 	
 	while (1)
 	{
@@ -65,10 +65,10 @@ int main(void)
 			int8_t ret = 0;
 			for(int i = 0; i < 13;i++){
 				
-				Serial_SendNumber(i,2);
-				Serial_SendString("data:");
-				Serial_SendNumber(nnom_output_data[i],4);
-				Serial_SendString("\r\n");
+//				Serial_SendNumber(i,2);
+//				Serial_SendString("data:");
+//				Serial_SendNumber(nnom_output_data[i],4);
+//				Serial_SendString("\r\n");
 				if(nnom_output_data[i] >= max_output){
 					max_output = nnom_output_data[i] ;
 					ret = i;
@@ -86,7 +86,7 @@ void model_feed_data(void)
 {
 	const double scale = 32;
 	uint16_t i = 0;
-	Serial_SendString("INPUT:");
+	Serial_SendString("IMU\n");
 	for(i = 0; i < 150;i++){
 		float Gx = mpu[i].GX/8192.0;
 		float Gy = mpu[i].GY/8192.0;
@@ -95,6 +95,28 @@ void model_feed_data(void)
 		nnom_input_data[i*3+1] = (int8_t)round(Gy * scale);
 		nnom_input_data[i*3+2] = (int8_t)round(Gz * scale);
 		
+		Serial_SendFloat(mpu[i].AX/8192.0);
+		Serial_SendString(" ");
+		Serial_SendFloat(mpu[i].AY/8192.0);
+		Serial_SendString(" ");		
+		Serial_SendFloat(mpu[i].AZ/8192.0);
+		Serial_SendString(" ");		
+		
+		Serial_SendFloat(Gx);
+		Serial_SendString(" ");
+		Serial_SendFloat(Gy);
+		Serial_SendString(" ");
+		Serial_SendFloat(Gz);
+		Serial_SendString(" ");
+		
+		Serial_SendString("\n");
+//		Serial_SendString("\n");
+//		Serial_SendFloat(Gx);
+//		Serial_SendString("   ");
+//		Serial_AutoSendNumber(mpu[i].GX);
+//		Serial_SendString("   ");
+//		Serial_SendNumber(mpu[i].GX,6);
+//		Serial_SendString("\n");
 //		Serial_SendNumber(i,3);
 //		Serial_SendString("  :  ");
 //		Serial_SendNumber(nnom_input_data[i*3],4);
