@@ -25,4 +25,11 @@
 #define	MPU6050_PWR_MGMT_2		0x6C
 #define	MPU6050_WHO_AM_I		0x75
 
+#define MPU6050_MOT_THR          0x1F  
+#define MPU6050_MOT_DUR          0x20  
+#define MPU6050_MOT_DETECT_CTRL  0x69  
+#define MPU6050_INT_PIN_CFG      0x37  
+#define MPU6050_INT_ENABLE       0x38  
+
+
 #endif

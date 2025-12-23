@@ -653,6 +653,9 @@ Section Cross References
     mpu6050.o(.ARM.exidx.text.MPU6050_GetData) refers to mpu6050.o(.text.MPU6050_GetData) for [Anonymous Symbol]
     mpu6050.o(.text.MPU6050_GetDataArray) refers to mpu6050.o(.text.MPU6050_GetData) for MPU6050_GetData
     mpu6050.o(.ARM.exidx.text.MPU6050_GetDataArray) refers to mpu6050.o(.text.MPU6050_GetDataArray) for [Anonymous Symbol]
+    mpu6050.o(.text.MPU6050_MotionDetection_Init) refers to mpu6050.o(.text.MPU6050_ReadReg) for MPU6050_ReadReg
+    mpu6050.o(.text.MPU6050_MotionDetection_Init) refers to mpu6050.o(.text.MPU6050_WriteReg) for MPU6050_WriteReg
+    mpu6050.o(.ARM.exidx.text.MPU6050_MotionDetection_Init) refers to mpu6050.o(.text.MPU6050_MotionDetection_Init) for [Anonymous Symbol]
     main.o(.text.main) refers to main.o(.text.SYS_INIT) for SYS_INIT
     main.o(.text.main) refers to main.o(.bss.mpustatus) for mpustatus
     main.o(.text.main) refers to main.o(.bss.mpu) for mpu
@@ -709,7 +712,7 @@ Section Cross References
     main.o(.text.model_feed_data) refers to dfixi.o(.text) for __aeabi_d2iz
     main.o(.text.model_feed_data) refers to main.o(.bss.nnom_input_data) for nnom_input_data
     main.o(.text.model_feed_data) refers to serial.o(.text.Serial_SendFloat) for Serial_SendFloat
-    main.o(.text.model_feed_data) refers to main.o(.rodata.str1.1) for .L.str.17
+    main.o(.text.model_feed_data) refers to main.o(.rodata.str1.1) for .L.str.15
     main.o(.ARM.exidx.text.model_feed_data) refers to main.o(.text.model_feed_data) for [Anonymous Symbol]
     main.o(.text.model_get_output) refers to main.o(.bss.nnom_output_data) for nnom_output_data
     main.o(.ARM.exidx.text.model_get_output) refers to main.o(.text.model_get_output) for [Anonymous Symbol]
@@ -717,6 +720,19 @@ Section Cross References
     main.o(.text.EXTI15_10_IRQHandler) refers to main.o(.bss.mpustatus) for mpustatus
     main.o(.text.EXTI15_10_IRQHandler) refers to stm32f10x_exti.o(.text.EXTI_ClearITPendingBit) for EXTI_ClearITPendingBit
     main.o(.ARM.exidx.text.EXTI15_10_IRQHandler) refers to main.o(.text.EXTI15_10_IRQHandler) for [Anonymous Symbol]
+    main.o(.ARM.exidx.text.Start_Timer) refers to main.o(.text.Start_Timer) for [Anonymous Symbol]
+    main.o(.text.Stop_And_Print_Timer) refers to ffltui.o(.text) for __aeabi_ui2f
+    main.o(.text.Stop_And_Print_Timer) refers to fdiv.o(.text) for __aeabi_fdiv
+    main.o(.text.Stop_And_Print_Timer) refers to fmul.o(.text) for __aeabi_fmul
+    main.o(.text.Stop_And_Print_Timer) refers to ffixui.o(.text) for __aeabi_f2uiz
+    main.o(.text.Stop_And_Print_Timer) refers to oled.o(.text.OLED_ShowNum) for OLED_ShowNum
+    main.o(.ARM.exidx.text.Stop_And_Print_Timer) refers to main.o(.text.Stop_And_Print_Timer) for [Anonymous Symbol]
+    main.o(.text.Enter_Lowpower_Mode) refers to oled.o(.text.OLED_Clear) for OLED_Clear
+    main.o(.text.Enter_Lowpower_Mode) refers to stm32f10x_rcc.o(.text.RCC_APB1PeriphClockCmd) for RCC_APB1PeriphClockCmd
+    main.o(.text.Enter_Lowpower_Mode) refers to stm32f10x_pwr.o(.text.PWR_ClearFlag) for PWR_ClearFlag
+    main.o(.text.Enter_Lowpower_Mode) refers to stm32f10x_pwr.o(.text.PWR_EnterSTOPMode) for PWR_EnterSTOPMode
+    main.o(.text.Enter_Lowpower_Mode) refers to system_stm32f10x.o(.text.SystemInit) for SystemInit
+    main.o(.ARM.exidx.text.Enter_Lowpower_Mode) refers to main.o(.text.Enter_Lowpower_Mode) for [Anonymous Symbol]
     main.o(.rodata.tensor_input_1) refers to main.o(.bss.nnom_input_data) for [Anonymous Symbol]
     main.o(.rodata.tensor_input_1) refers to main.o(.rodata.tensor_input_1_dim) for tensor_input_1_dim
     main.o(.rodata.tensor_input_1) refers to main.o(.rodata.tensor_input_1_dec) for tensor_input_1_dec
@@ -2958,6 +2974,8 @@ Removing Unused input sections from the image.
     Removing mpu6050.o(.ARM.exidx.text.MPU6050_GetID), (8 bytes).
     Removing mpu6050.o(.ARM.exidx.text.MPU6050_GetData), (8 bytes).
     Removing mpu6050.o(.ARM.exidx.text.MPU6050_GetDataArray), (8 bytes).
+    Removing mpu6050.o(.text.MPU6050_MotionDetection_Init), (66 bytes).
+    Removing mpu6050.o(.ARM.exidx.text.MPU6050_MotionDetection_Init), (8 bytes).
     Removing main.o(.text), (0 bytes).
     Removing main.o(.ARM.exidx.text.main), (8 bytes).
     Removing main.o(.ARM.exidx.text.SYS_INIT), (8 bytes).
@@ -2965,6 +2983,12 @@ Removing Unused input sections from the image.
     Removing main.o(.text.model_get_output), (42 bytes).
     Removing main.o(.ARM.exidx.text.model_get_output), (8 bytes).
     Removing main.o(.ARM.exidx.text.EXTI15_10_IRQHandler), (8 bytes).
+    Removing main.o(.text.Start_Timer), (32 bytes).
+    Removing main.o(.ARM.exidx.text.Start_Timer), (8 bytes).
+    Removing main.o(.text.Stop_And_Print_Timer), (76 bytes).
+    Removing main.o(.ARM.exidx.text.Stop_And_Print_Timer), (8 bytes).
+    Removing main.o(.text.Enter_Lowpower_Mode), (38 bytes).
+    Removing main.o(.ARM.exidx.text.Enter_Lowpower_Mode), (8 bytes).
     Removing main.o(.ARM.use_no_argv), (4 bytes).
     Removing stm32f10x_it.o(.text), (0 bytes).
     Removing stm32f10x_it.o(.ARM.exidx.text.NMI_Handler), (8 bytes).
@@ -3484,7 +3508,7 @@ Removing Unused input sections from the image.
     Removing fflti.o(.text), (18 bytes).
     Removing ffixi.o(.text), (50 bytes).
 
-1540 unused section(s) (total 58050 bytes) removed from the image.
+1548 unused section(s) (total 58294 bytes) removed from the image.
 
 ==============================================================================
 
@@ -3753,82 +3777,82 @@ Image Symbol Table
     [Anonymous Symbol]                       0x080032a4   Section        0  nnom_local.o(.text.local_relu_q7)
     [Anonymous Symbol]                       0x080032c4   Section        0  nnom_local.o(.text.local_softmax_q7)
     [Anonymous Symbol]                       0x08003358   Section        0  main.o(.text.main)
-    [Anonymous Symbol]                       0x08003480   Section        0  nnom_maxpool.o(.text.maxpool_build)
-    [Anonymous Symbol]                       0x08003520   Section        0  nnom_maxpool.o(.text.maxpool_run)
-    [Anonymous Symbol]                       0x0800358c   Section        0  nnom_maxpool.o(.text.maxpool_s)
-    model_active                             0x08003715   Thumb Code     8  nnom.o(.text.model_active)
-    [Anonymous Symbol]                       0x08003714   Section        0  nnom.o(.text.model_active)
-    model_add                                0x0800371d   Thumb Code    56  nnom.o(.text.model_add)
-    [Anonymous Symbol]                       0x0800371c   Section        0  nnom.o(.text.model_add)
-    [Anonymous Symbol]                       0x08003754   Section        0  nnom.o(.text.model_compile)
-    [Anonymous Symbol]                       0x080039fc   Section        0  main.o(.text.model_feed_data)
-    model_hook                               0x08003b8d   Thumb Code   320  nnom.o(.text.model_hook)
-    [Anonymous Symbol]                       0x08003b8c   Section        0  nnom.o(.text.model_hook)
-    model_merge                              0x08003ccd   Thumb Code    10  nnom.o(.text.model_merge)
-    [Anonymous Symbol]                       0x08003ccc   Section        0  nnom.o(.text.model_merge)
-    model_mergex                             0x08003cd9   Thumb Code    58  nnom.o(.text.model_mergex)
-    [Anonymous Symbol]                       0x08003cd8   Section        0  nnom.o(.text.model_mergex)
-    [Anonymous Symbol]                       0x08003d14   Section        0  nnom.o(.text.model_run)
-    [Anonymous Symbol]                       0x08003d1c   Section        0  nnom.o(.text.model_run_to)
-    [Anonymous Symbol]                       0x08003e1c   Section        0  nnom.o(.text.new_model)
-    [Anonymous Symbol]                       0x08003ecc   Section        0  nnom_tensor.o(.text.new_tensor)
-    [Anonymous Symbol]                       0x08003f64   Section        0  nnom.o(.text.nnom_alignto)
-    [Anonymous Symbol]                       0x08003f78   Section        0  nnom.o(.text.nnom_free)
-    [Anonymous Symbol]                       0x08003f7c   Section        0  nnom.o(.text.nnom_mem)
-    [Anonymous Symbol]                       0x08003ffc   Section        0  nnom.o(.text.nnom_set_static_buf)
-    [Anonymous Symbol]                       0x08004020   Section        0  nnom_output.o(.text.output_run)
-    [Anonymous Symbol]                       0x08004040   Section        0  nnom_output.o(.text.output_s)
-    relu_run                                 0x08004079   Thumb Code    36  nnom_activation.o(.text.relu_run)
-    [Anonymous Symbol]                       0x08004078   Section        0  nnom_activation.o(.text.relu_run)
-    [Anonymous Symbol]                       0x0800409c   Section        0  nnom_layers.o(.text.shape)
-    [Anonymous Symbol]                       0x080040a4   Section        0  nnom_softmax.o(.text.softmax_build)
-    [Anonymous Symbol]                       0x080040dc   Section        0  nnom_softmax.o(.text.softmax_run)
-    [Anonymous Symbol]                       0x08004100   Section        0  nnom_softmax.o(.text.softmax_s)
-    [Anonymous Symbol]                       0x08004158   Section        0  nnom_layers.o(.text.stride)
-    [Anonymous Symbol]                       0x08004164   Section        0  nnom_tensor.o(.text.tensor_cpy_attr)
-    [Anonymous Symbol]                       0x080041c8   Section        0  nnom_tensor.o(.text.tensor_get_num_channel)
-    [Anonymous Symbol]                       0x080041d8   Section        0  nnom_tensor.o(.text.tensor_set_attr)
-    [Anonymous Symbol]                       0x08004228   Section        0  nnom_tensor.o(.text.tensor_set_attr_v)
-    [Anonymous Symbol]                       0x08004254   Section        0  nnom_tensor.o(.text.tensor_size)
-    i.__0printf                              0x0800427c   Section        0  printfa.o(i.__0printf)
-    i.__scatterload_copy                     0x0800429c   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x080042aa   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x080042ac   Section       14  handlers.o(i.__scatterload_zeroinit)
-    _fp_digits                               0x080042bd   Thumb Code   366  printfa.o(i._fp_digits)
-    i._fp_digits                             0x080042bc   Section        0  printfa.o(i._fp_digits)
-    _printf_core                             0x08004441   Thumb Code  1744  printfa.o(i._printf_core)
-    i._printf_core                           0x08004440   Section        0  printfa.o(i._printf_core)
-    _printf_post_padding                     0x08004b1d   Thumb Code    36  printfa.o(i._printf_post_padding)
-    i._printf_post_padding                   0x08004b1c   Section        0  printfa.o(i._printf_post_padding)
-    _printf_pre_padding                      0x08004b41   Thumb Code    46  printfa.o(i._printf_pre_padding)
-    i._printf_pre_padding                    0x08004b40   Section        0  printfa.o(i._printf_pre_padding)
-    i.putchar                                0x08004b70   Section        0  putchar.o(i.putchar)
-    i.puts                                   0x08004b7c   Section        0  puts.o(i.puts)
-    i.round                                  0x08004ba0   Section        0  round.o(i.round)
-    ADCPrescTable                            0x08004c34   Data           4  stm32f10x_rcc.o(.rodata.ADCPrescTable)
-    [Anonymous Symbol]                       0x08004c34   Section        0  stm32f10x_rcc.o(.rodata.ADCPrescTable)
-    APBAHBPrescTable                         0x08004c38   Data          16  stm32f10x_rcc.o(.rodata.APBAHBPrescTable)
-    [Anonymous Symbol]                       0x08004c38   Section        0  stm32f10x_rcc.o(.rodata.APBAHBPrescTable)
-    [Anonymous Symbol]                       0x080054cc   Section        0  main.o(.rodata.str1.1)
-    .L.str.13                                0x08005510   Data          79  nnom.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x08005510   Section        0  nnom.o(.rodata.str1.1)
-    .L.str.15                                0x0800555f   Data          34  nnom.o(.rodata.str1.1)
-    .L.str.4                                 0x08005581   Data          44  nnom.o(.rodata.str1.1)
-    .L.str.14                                0x080055ad   Data          63  nnom.o(.rodata.str1.1)
-    .L.str.2                                 0x080055ec   Data          29  nnom.o(.rodata.str1.1)
-    .L.str.37                                0x08005609   Data           4  nnom.o(.rodata.str1.1)
-    .L.str.3                                 0x0800560d   Data          12  nnom.o(.rodata.str1.1)
-    .L.str.40                                0x08005619   Data           3  nnom.o(.rodata.str1.1)
-    .L.str.39                                0x0800561c   Data           4  nnom.o(.rodata.str1.1)
-    .L.str.17                                0x0800561e   Data           2  nnom.o(.rodata.str1.1)
-    .L.str.1                                 0x08005620   Data          79  nnom.o(.rodata.str1.1)
-    .Lstr.42                                 0x0800566f   Data         107  nnom.o(.rodata.str1.1)
-    .Lstr.50                                 0x080056da   Data          98  nnom.o(.rodata.str1.1)
-    .Lstr.45                                 0x0800573c   Data          73  nnom.o(.rodata.str1.1)
-    .L.str                                   0x08005785   Data          85  nnom.o(.rodata.str1.1)
-    .Lstr                                    0x080057da   Data          68  nnom.o(.rodata.str1.1)
-    .Lstr.55                                 0x0800581e   Data          20  nnom.o(.rodata.str1.1)
-    .Lstr.48                                 0x08005832   Data          98  nnom.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x08003464   Section        0  nnom_maxpool.o(.text.maxpool_build)
+    [Anonymous Symbol]                       0x08003504   Section        0  nnom_maxpool.o(.text.maxpool_run)
+    [Anonymous Symbol]                       0x08003570   Section        0  nnom_maxpool.o(.text.maxpool_s)
+    model_active                             0x080036f9   Thumb Code     8  nnom.o(.text.model_active)
+    [Anonymous Symbol]                       0x080036f8   Section        0  nnom.o(.text.model_active)
+    model_add                                0x08003701   Thumb Code    56  nnom.o(.text.model_add)
+    [Anonymous Symbol]                       0x08003700   Section        0  nnom.o(.text.model_add)
+    [Anonymous Symbol]                       0x08003738   Section        0  nnom.o(.text.model_compile)
+    [Anonymous Symbol]                       0x080039e0   Section        0  main.o(.text.model_feed_data)
+    model_hook                               0x08003b71   Thumb Code   320  nnom.o(.text.model_hook)
+    [Anonymous Symbol]                       0x08003b70   Section        0  nnom.o(.text.model_hook)
+    model_merge                              0x08003cb1   Thumb Code    10  nnom.o(.text.model_merge)
+    [Anonymous Symbol]                       0x08003cb0   Section        0  nnom.o(.text.model_merge)
+    model_mergex                             0x08003cbd   Thumb Code    58  nnom.o(.text.model_mergex)
+    [Anonymous Symbol]                       0x08003cbc   Section        0  nnom.o(.text.model_mergex)
+    [Anonymous Symbol]                       0x08003cf8   Section        0  nnom.o(.text.model_run)
+    [Anonymous Symbol]                       0x08003d00   Section        0  nnom.o(.text.model_run_to)
+    [Anonymous Symbol]                       0x08003e00   Section        0  nnom.o(.text.new_model)
+    [Anonymous Symbol]                       0x08003eb0   Section        0  nnom_tensor.o(.text.new_tensor)
+    [Anonymous Symbol]                       0x08003f48   Section        0  nnom.o(.text.nnom_alignto)
+    [Anonymous Symbol]                       0x08003f5c   Section        0  nnom.o(.text.nnom_free)
+    [Anonymous Symbol]                       0x08003f60   Section        0  nnom.o(.text.nnom_mem)
+    [Anonymous Symbol]                       0x08003fe0   Section        0  nnom.o(.text.nnom_set_static_buf)
+    [Anonymous Symbol]                       0x08004004   Section        0  nnom_output.o(.text.output_run)
+    [Anonymous Symbol]                       0x08004024   Section        0  nnom_output.o(.text.output_s)
+    relu_run                                 0x0800405d   Thumb Code    36  nnom_activation.o(.text.relu_run)
+    [Anonymous Symbol]                       0x0800405c   Section        0  nnom_activation.o(.text.relu_run)
+    [Anonymous Symbol]                       0x08004080   Section        0  nnom_layers.o(.text.shape)
+    [Anonymous Symbol]                       0x08004088   Section        0  nnom_softmax.o(.text.softmax_build)
+    [Anonymous Symbol]                       0x080040c0   Section        0  nnom_softmax.o(.text.softmax_run)
+    [Anonymous Symbol]                       0x080040e4   Section        0  nnom_softmax.o(.text.softmax_s)
+    [Anonymous Symbol]                       0x0800413c   Section        0  nnom_layers.o(.text.stride)
+    [Anonymous Symbol]                       0x08004148   Section        0  nnom_tensor.o(.text.tensor_cpy_attr)
+    [Anonymous Symbol]                       0x080041ac   Section        0  nnom_tensor.o(.text.tensor_get_num_channel)
+    [Anonymous Symbol]                       0x080041bc   Section        0  nnom_tensor.o(.text.tensor_set_attr)
+    [Anonymous Symbol]                       0x0800420c   Section        0  nnom_tensor.o(.text.tensor_set_attr_v)
+    [Anonymous Symbol]                       0x08004238   Section        0  nnom_tensor.o(.text.tensor_size)
+    i.__0printf                              0x08004260   Section        0  printfa.o(i.__0printf)
+    i.__scatterload_copy                     0x08004280   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x0800428e   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x08004290   Section       14  handlers.o(i.__scatterload_zeroinit)
+    _fp_digits                               0x080042a1   Thumb Code   366  printfa.o(i._fp_digits)
+    i._fp_digits                             0x080042a0   Section        0  printfa.o(i._fp_digits)
+    _printf_core                             0x08004425   Thumb Code  1744  printfa.o(i._printf_core)
+    i._printf_core                           0x08004424   Section        0  printfa.o(i._printf_core)
+    _printf_post_padding                     0x08004b01   Thumb Code    36  printfa.o(i._printf_post_padding)
+    i._printf_post_padding                   0x08004b00   Section        0  printfa.o(i._printf_post_padding)
+    _printf_pre_padding                      0x08004b25   Thumb Code    46  printfa.o(i._printf_pre_padding)
+    i._printf_pre_padding                    0x08004b24   Section        0  printfa.o(i._printf_pre_padding)
+    i.putchar                                0x08004b54   Section        0  putchar.o(i.putchar)
+    i.puts                                   0x08004b60   Section        0  puts.o(i.puts)
+    i.round                                  0x08004b84   Section        0  round.o(i.round)
+    ADCPrescTable                            0x08004c18   Data           4  stm32f10x_rcc.o(.rodata.ADCPrescTable)
+    [Anonymous Symbol]                       0x08004c18   Section        0  stm32f10x_rcc.o(.rodata.ADCPrescTable)
+    APBAHBPrescTable                         0x08004c1c   Data          16  stm32f10x_rcc.o(.rodata.APBAHBPrescTable)
+    [Anonymous Symbol]                       0x08004c1c   Section        0  stm32f10x_rcc.o(.rodata.APBAHBPrescTable)
+    [Anonymous Symbol]                       0x080054b0   Section        0  main.o(.rodata.str1.1)
+    .L.str.13                                0x080054f4   Data          79  nnom.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x080054f4   Section        0  nnom.o(.rodata.str1.1)
+    .L.str.15                                0x08005543   Data          34  nnom.o(.rodata.str1.1)
+    .L.str.4                                 0x08005565   Data          44  nnom.o(.rodata.str1.1)
+    .L.str.14                                0x08005591   Data          63  nnom.o(.rodata.str1.1)
+    .L.str.2                                 0x080055d0   Data          29  nnom.o(.rodata.str1.1)
+    .L.str.37                                0x080055ed   Data           4  nnom.o(.rodata.str1.1)
+    .L.str.3                                 0x080055f1   Data          12  nnom.o(.rodata.str1.1)
+    .L.str.40                                0x080055fd   Data           3  nnom.o(.rodata.str1.1)
+    .L.str.39                                0x08005600   Data           4  nnom.o(.rodata.str1.1)
+    .L.str.15                                0x08005602   Data           2  nnom.o(.rodata.str1.1)
+    .L.str.1                                 0x08005604   Data          79  nnom.o(.rodata.str1.1)
+    .Lstr.42                                 0x08005653   Data         107  nnom.o(.rodata.str1.1)
+    .Lstr.50                                 0x080056be   Data          98  nnom.o(.rodata.str1.1)
+    .Lstr.45                                 0x08005720   Data          73  nnom.o(.rodata.str1.1)
+    .L.str                                   0x08005769   Data          85  nnom.o(.rodata.str1.1)
+    .Lstr                                    0x080057be   Data          68  nnom.o(.rodata.str1.1)
+    .Lstr.55                                 0x08005802   Data          20  nnom.o(.rodata.str1.1)
+    .Lstr.48                                 0x08005816   Data          98  nnom.o(.rodata.str1.1)
     .data                                    0x20000000   Section        4  stdout.o(.data)
     nnom_input_data                          0x20000728   Data         450  main.o(.bss.nnom_input_data)
     [Anonymous Symbol]                       0x20000728   Section        0  main.o(.bss.nnom_input_data)
@@ -4084,101 +4108,101 @@ Image Symbol Table
     local_relu_q15                           0x08003285   Thumb Code    30  nnom_local_q15.o(.text.local_relu_q15)
     local_relu_q7                            0x080032a5   Thumb Code    30  nnom_local.o(.text.local_relu_q7)
     local_softmax_q7                         0x080032c5   Thumb Code   146  nnom_local.o(.text.local_softmax_q7)
-    main                                     0x08003359   Thumb Code   236  main.o(.text.main)
-    maxpool_build                            0x08003481   Thumb Code   158  nnom_maxpool.o(.text.maxpool_build)
-    maxpool_run                              0x08003521   Thumb Code   108  nnom_maxpool.o(.text.maxpool_run)
-    maxpool_s                                0x0800358d   Thumb Code   390  nnom_maxpool.o(.text.maxpool_s)
-    model_compile                            0x08003755   Thumb Code   564  nnom.o(.text.model_compile)
-    model_feed_data                          0x080039fd   Thumb Code   388  main.o(.text.model_feed_data)
-    model_run                                0x08003d15   Thumb Code     6  nnom.o(.text.model_run)
-    model_run_to                             0x08003d1d   Thumb Code   156  nnom.o(.text.model_run_to)
-    new_model                                0x08003e1d   Thumb Code   176  nnom.o(.text.new_model)
-    new_tensor                               0x08003ecd   Thumb Code   116  nnom_tensor.o(.text.new_tensor)
-    nnom_alignto                             0x08003f65   Thumb Code    18  nnom.o(.text.nnom_alignto)
-    nnom_free                                0x08003f79   Thumb Code     2  nnom.o(.text.nnom_free)
-    nnom_mem                                 0x08003f7d   Thumb Code   128  nnom.o(.text.nnom_mem)
-    nnom_set_static_buf                      0x08003ffd   Thumb Code    34  nnom.o(.text.nnom_set_static_buf)
-    output_run                               0x08004021   Thumb Code    32  nnom_output.o(.text.output_run)
-    output_s                                 0x08004041   Thumb Code    56  nnom_output.o(.text.output_s)
-    shape                                    0x0800409d   Thumb Code     8  nnom_layers.o(.text.shape)
-    softmax_build                            0x080040a5   Thumb Code    54  nnom_softmax.o(.text.softmax_build)
-    softmax_run                              0x080040dd   Thumb Code    36  nnom_softmax.o(.text.softmax_run)
-    softmax_s                                0x08004101   Thumb Code    88  nnom_softmax.o(.text.softmax_s)
-    stride                                   0x08004159   Thumb Code    10  nnom_layers.o(.text.stride)
-    tensor_cpy_attr                          0x08004165   Thumb Code    98  nnom_tensor.o(.text.tensor_cpy_attr)
-    tensor_get_num_channel                   0x080041c9   Thumb Code    14  nnom_tensor.o(.text.tensor_get_num_channel)
-    tensor_set_attr                          0x080041d9   Thumb Code    80  nnom_tensor.o(.text.tensor_set_attr)
-    tensor_set_attr_v                        0x08004229   Thumb Code    42  nnom_tensor.o(.text.tensor_set_attr_v)
-    tensor_size                              0x08004255   Thumb Code    40  nnom_tensor.o(.text.tensor_size)
-    __0printf                                0x0800427d   Thumb Code    22  printfa.o(i.__0printf)
-    __1printf                                0x0800427d   Thumb Code     0  printfa.o(i.__0printf)
-    __2printf                                0x0800427d   Thumb Code     0  printfa.o(i.__0printf)
-    __c89printf                              0x0800427d   Thumb Code     0  printfa.o(i.__0printf)
-    printf                                   0x0800427d   Thumb Code     0  printfa.o(i.__0printf)
-    __scatterload_copy                       0x0800429d   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x080042ab   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x080042ad   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    putchar                                  0x08004b71   Thumb Code     6  putchar.o(i.putchar)
-    puts                                     0x08004b7d   Thumb Code    30  puts.o(i.puts)
-    round                                    0x08004ba1   Thumb Code   136  round.o(i.round)
-    OLED_F8x16                               0x08004c48   Data        1520  oled.o(.rodata.OLED_F8x16)
-    conv1d_1_bias_shift                      0x08005238   Data           4  main.o(.rodata.conv1d_1_bias_shift)
-    conv1d_1_config                          0x0800523c   Data          40  main.o(.rodata.conv1d_1_config)
-    conv1d_1_output_shift                    0x08005264   Data           4  main.o(.rodata.conv1d_1_output_shift)
-    conv1d_bias_shift                        0x08005268   Data           4  main.o(.rodata.conv1d_bias_shift)
-    conv1d_config                            0x0800526c   Data          40  main.o(.rodata.conv1d_config)
-    conv1d_output_shift                      0x08005294   Data           4  main.o(.rodata.conv1d_output_shift)
-    default_activation_names                 0x08005298   Data          64  nnom.o(.rodata.default_activation_names)
-    default_cell_names                       0x080052d8   Data          32  nnom.o(.rodata.default_cell_names)
-    default_layer_names                      0x080052f8   Data         396  nnom.o(.rodata.default_layer_names)
-    dense_bias_shift                         0x08005484   Data           4  main.o(.rodata.dense_bias_shift)
-    dense_config                             0x08005488   Data          24  main.o(.rodata.dense_config)
-    dense_output_shift                       0x080054a0   Data           4  main.o(.rodata.dense_output_shift)
-    flatten_config                           0x080054a4   Data           4  main.o(.rodata.flatten_config)
-    input_1_config                           0x080054a8   Data           8  main.o(.rodata.input_1_config)
-    max_pooling1d_config                     0x080054b0   Data          16  main.o(.rodata.max_pooling1d_config)
-    output0_config                           0x080054c0   Data           8  main.o(.rodata.output0_config)
-    softmax_config                           0x080054c8   Data           4  main.o(.rodata.softmax_config)
-    tensor_conv1d_1_bias_0                   0x08005894   Data          20  main.o(.rodata.tensor_conv1d_1_bias_0)
-    tensor_conv1d_1_bias_0_data              0x080058a8   Data          15  main.o(.rodata.tensor_conv1d_1_bias_0_data)
-    tensor_conv1d_1_bias_0_dec               0x080058b8   Data           4  main.o(.rodata.tensor_conv1d_1_bias_0_dec)
-    tensor_conv1d_1_bias_0_dim               0x080058bc   Data           2  main.o(.rodata.tensor_conv1d_1_bias_0_dim)
-    tensor_conv1d_1_bias_0_offset            0x080058c0   Data           4  main.o(.rodata.tensor_conv1d_1_bias_0_offset)
-    tensor_conv1d_1_kernel_0                 0x080058c4   Data          20  main.o(.rodata.tensor_conv1d_1_kernel_0)
-    tensor_conv1d_1_kernel_0_data            0x080058d8   Data        1350  main.o(.rodata.tensor_conv1d_1_kernel_0_data)
-    tensor_conv1d_1_kernel_0_dec             0x08005e20   Data           4  main.o(.rodata.tensor_conv1d_1_kernel_0_dec)
-    tensor_conv1d_1_kernel_0_dim             0x08005e24   Data           6  main.o(.rodata.tensor_conv1d_1_kernel_0_dim)
-    tensor_conv1d_1_kernel_0_offset          0x08005e2c   Data           4  main.o(.rodata.tensor_conv1d_1_kernel_0_offset)
-    tensor_conv1d_bias_0                     0x08005e30   Data          20  main.o(.rodata.tensor_conv1d_bias_0)
-    tensor_conv1d_bias_0_data                0x08005e44   Data          30  main.o(.rodata.tensor_conv1d_bias_0_data)
-    tensor_conv1d_bias_0_dec                 0x08005e64   Data           4  main.o(.rodata.tensor_conv1d_bias_0_dec)
-    tensor_conv1d_bias_0_dim                 0x08005e68   Data           2  main.o(.rodata.tensor_conv1d_bias_0_dim)
-    tensor_conv1d_bias_0_offset              0x08005e6c   Data           4  main.o(.rodata.tensor_conv1d_bias_0_offset)
-    tensor_conv1d_kernel_0                   0x08005e70   Data          20  main.o(.rodata.tensor_conv1d_kernel_0)
-    tensor_conv1d_kernel_0_data              0x08005e84   Data         270  main.o(.rodata.tensor_conv1d_kernel_0_data)
-    tensor_conv1d_kernel_0_dec               0x08005f94   Data           4  main.o(.rodata.tensor_conv1d_kernel_0_dec)
-    tensor_conv1d_kernel_0_dim               0x08005f98   Data           6  main.o(.rodata.tensor_conv1d_kernel_0_dim)
-    tensor_conv1d_kernel_0_offset            0x08005fa0   Data           4  main.o(.rodata.tensor_conv1d_kernel_0_offset)
-    tensor_dense_bias_0                      0x08005fa4   Data          20  main.o(.rodata.tensor_dense_bias_0)
-    tensor_dense_bias_0_data                 0x08005fb8   Data          13  main.o(.rodata.tensor_dense_bias_0_data)
-    tensor_dense_bias_0_dec                  0x08005fc8   Data           4  main.o(.rodata.tensor_dense_bias_0_dec)
-    tensor_dense_bias_0_dim                  0x08005fcc   Data           2  main.o(.rodata.tensor_dense_bias_0_dim)
-    tensor_dense_bias_0_offset               0x08005fd0   Data           4  main.o(.rodata.tensor_dense_bias_0_offset)
-    tensor_dense_kernel_0                    0x08005fd4   Data          20  main.o(.rodata.tensor_dense_kernel_0)
-    tensor_dense_kernel_0_data               0x08005fe8   Data         975  main.o(.rodata.tensor_dense_kernel_0_data)
-    tensor_dense_kernel_0_dec                0x080063b8   Data           4  main.o(.rodata.tensor_dense_kernel_0_dec)
-    tensor_dense_kernel_0_dim                0x080063bc   Data           4  main.o(.rodata.tensor_dense_kernel_0_dim)
-    tensor_dense_kernel_0_offset             0x080063c0   Data           4  main.o(.rodata.tensor_dense_kernel_0_offset)
-    tensor_input_1                           0x080063c4   Data          20  main.o(.rodata.tensor_input_1)
-    tensor_input_1_dec                       0x080063d8   Data           4  main.o(.rodata.tensor_input_1_dec)
-    tensor_input_1_dim                       0x080063dc   Data           4  main.o(.rodata.tensor_input_1_dim)
-    tensor_input_1_offset                    0x080063e0   Data           4  main.o(.rodata.tensor_input_1_offset)
-    tensor_output0                           0x080063e4   Data          20  main.o(.rodata.tensor_output0)
-    tensor_output0_dec                       0x080063f8   Data           4  main.o(.rodata.tensor_output0_dec)
-    tensor_output0_dim                       0x080063fc   Data           2  main.o(.rodata.tensor_output0_dim)
-    tensor_output0_offset                    0x08006400   Data           4  main.o(.rodata.tensor_output0_offset)
-    Region$$Table$$Base                      0x08006404   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08006424   Number         0  anon$$obj.o(Region$$Table)
+    main                                     0x08003359   Thumb Code   220  main.o(.text.main)
+    maxpool_build                            0x08003465   Thumb Code   158  nnom_maxpool.o(.text.maxpool_build)
+    maxpool_run                              0x08003505   Thumb Code   108  nnom_maxpool.o(.text.maxpool_run)
+    maxpool_s                                0x08003571   Thumb Code   390  nnom_maxpool.o(.text.maxpool_s)
+    model_compile                            0x08003739   Thumb Code   564  nnom.o(.text.model_compile)
+    model_feed_data                          0x080039e1   Thumb Code   388  main.o(.text.model_feed_data)
+    model_run                                0x08003cf9   Thumb Code     6  nnom.o(.text.model_run)
+    model_run_to                             0x08003d01   Thumb Code   156  nnom.o(.text.model_run_to)
+    new_model                                0x08003e01   Thumb Code   176  nnom.o(.text.new_model)
+    new_tensor                               0x08003eb1   Thumb Code   116  nnom_tensor.o(.text.new_tensor)
+    nnom_alignto                             0x08003f49   Thumb Code    18  nnom.o(.text.nnom_alignto)
+    nnom_free                                0x08003f5d   Thumb Code     2  nnom.o(.text.nnom_free)
+    nnom_mem                                 0x08003f61   Thumb Code   128  nnom.o(.text.nnom_mem)
+    nnom_set_static_buf                      0x08003fe1   Thumb Code    34  nnom.o(.text.nnom_set_static_buf)
+    output_run                               0x08004005   Thumb Code    32  nnom_output.o(.text.output_run)
+    output_s                                 0x08004025   Thumb Code    56  nnom_output.o(.text.output_s)
+    shape                                    0x08004081   Thumb Code     8  nnom_layers.o(.text.shape)
+    softmax_build                            0x08004089   Thumb Code    54  nnom_softmax.o(.text.softmax_build)
+    softmax_run                              0x080040c1   Thumb Code    36  nnom_softmax.o(.text.softmax_run)
+    softmax_s                                0x080040e5   Thumb Code    88  nnom_softmax.o(.text.softmax_s)
+    stride                                   0x0800413d   Thumb Code    10  nnom_layers.o(.text.stride)
+    tensor_cpy_attr                          0x08004149   Thumb Code    98  nnom_tensor.o(.text.tensor_cpy_attr)
+    tensor_get_num_channel                   0x080041ad   Thumb Code    14  nnom_tensor.o(.text.tensor_get_num_channel)
+    tensor_set_attr                          0x080041bd   Thumb Code    80  nnom_tensor.o(.text.tensor_set_attr)
+    tensor_set_attr_v                        0x0800420d   Thumb Code    42  nnom_tensor.o(.text.tensor_set_attr_v)
+    tensor_size                              0x08004239   Thumb Code    40  nnom_tensor.o(.text.tensor_size)
+    __0printf                                0x08004261   Thumb Code    22  printfa.o(i.__0printf)
+    __1printf                                0x08004261   Thumb Code     0  printfa.o(i.__0printf)
+    __2printf                                0x08004261   Thumb Code     0  printfa.o(i.__0printf)
+    __c89printf                              0x08004261   Thumb Code     0  printfa.o(i.__0printf)
+    printf                                   0x08004261   Thumb Code     0  printfa.o(i.__0printf)
+    __scatterload_copy                       0x08004281   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x0800428f   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x08004291   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    putchar                                  0x08004b55   Thumb Code     6  putchar.o(i.putchar)
+    puts                                     0x08004b61   Thumb Code    30  puts.o(i.puts)
+    round                                    0x08004b85   Thumb Code   136  round.o(i.round)
+    OLED_F8x16                               0x08004c2c   Data        1520  oled.o(.rodata.OLED_F8x16)
+    conv1d_1_bias_shift                      0x0800521c   Data           4  main.o(.rodata.conv1d_1_bias_shift)
+    conv1d_1_config                          0x08005220   Data          40  main.o(.rodata.conv1d_1_config)
+    conv1d_1_output_shift                    0x08005248   Data           4  main.o(.rodata.conv1d_1_output_shift)
+    conv1d_bias_shift                        0x0800524c   Data           4  main.o(.rodata.conv1d_bias_shift)
+    conv1d_config                            0x08005250   Data          40  main.o(.rodata.conv1d_config)
+    conv1d_output_shift                      0x08005278   Data           4  main.o(.rodata.conv1d_output_shift)
+    default_activation_names                 0x0800527c   Data          64  nnom.o(.rodata.default_activation_names)
+    default_cell_names                       0x080052bc   Data          32  nnom.o(.rodata.default_cell_names)
+    default_layer_names                      0x080052dc   Data         396  nnom.o(.rodata.default_layer_names)
+    dense_bias_shift                         0x08005468   Data           4  main.o(.rodata.dense_bias_shift)
+    dense_config                             0x0800546c   Data          24  main.o(.rodata.dense_config)
+    dense_output_shift                       0x08005484   Data           4  main.o(.rodata.dense_output_shift)
+    flatten_config                           0x08005488   Data           4  main.o(.rodata.flatten_config)
+    input_1_config                           0x0800548c   Data           8  main.o(.rodata.input_1_config)
+    max_pooling1d_config                     0x08005494   Data          16  main.o(.rodata.max_pooling1d_config)
+    output0_config                           0x080054a4   Data           8  main.o(.rodata.output0_config)
+    softmax_config                           0x080054ac   Data           4  main.o(.rodata.softmax_config)
+    tensor_conv1d_1_bias_0                   0x08005878   Data          20  main.o(.rodata.tensor_conv1d_1_bias_0)
+    tensor_conv1d_1_bias_0_data              0x0800588c   Data          15  main.o(.rodata.tensor_conv1d_1_bias_0_data)
+    tensor_conv1d_1_bias_0_dec               0x0800589c   Data           4  main.o(.rodata.tensor_conv1d_1_bias_0_dec)
+    tensor_conv1d_1_bias_0_dim               0x080058a0   Data           2  main.o(.rodata.tensor_conv1d_1_bias_0_dim)
+    tensor_conv1d_1_bias_0_offset            0x080058a4   Data           4  main.o(.rodata.tensor_conv1d_1_bias_0_offset)
+    tensor_conv1d_1_kernel_0                 0x080058a8   Data          20  main.o(.rodata.tensor_conv1d_1_kernel_0)
+    tensor_conv1d_1_kernel_0_data            0x080058bc   Data        1350  main.o(.rodata.tensor_conv1d_1_kernel_0_data)
+    tensor_conv1d_1_kernel_0_dec             0x08005e04   Data           4  main.o(.rodata.tensor_conv1d_1_kernel_0_dec)
+    tensor_conv1d_1_kernel_0_dim             0x08005e08   Data           6  main.o(.rodata.tensor_conv1d_1_kernel_0_dim)
+    tensor_conv1d_1_kernel_0_offset          0x08005e10   Data           4  main.o(.rodata.tensor_conv1d_1_kernel_0_offset)
+    tensor_conv1d_bias_0                     0x08005e14   Data          20  main.o(.rodata.tensor_conv1d_bias_0)
+    tensor_conv1d_bias_0_data                0x08005e28   Data          30  main.o(.rodata.tensor_conv1d_bias_0_data)
+    tensor_conv1d_bias_0_dec                 0x08005e48   Data           4  main.o(.rodata.tensor_conv1d_bias_0_dec)
+    tensor_conv1d_bias_0_dim                 0x08005e4c   Data           2  main.o(.rodata.tensor_conv1d_bias_0_dim)
+    tensor_conv1d_bias_0_offset              0x08005e50   Data           4  main.o(.rodata.tensor_conv1d_bias_0_offset)
+    tensor_conv1d_kernel_0                   0x08005e54   Data          20  main.o(.rodata.tensor_conv1d_kernel_0)
+    tensor_conv1d_kernel_0_data              0x08005e68   Data         270  main.o(.rodata.tensor_conv1d_kernel_0_data)
+    tensor_conv1d_kernel_0_dec               0x08005f78   Data           4  main.o(.rodata.tensor_conv1d_kernel_0_dec)
+    tensor_conv1d_kernel_0_dim               0x08005f7c   Data           6  main.o(.rodata.tensor_conv1d_kernel_0_dim)
+    tensor_conv1d_kernel_0_offset            0x08005f84   Data           4  main.o(.rodata.tensor_conv1d_kernel_0_offset)
+    tensor_dense_bias_0                      0x08005f88   Data          20  main.o(.rodata.tensor_dense_bias_0)
+    tensor_dense_bias_0_data                 0x08005f9c   Data          13  main.o(.rodata.tensor_dense_bias_0_data)
+    tensor_dense_bias_0_dec                  0x08005fac   Data           4  main.o(.rodata.tensor_dense_bias_0_dec)
+    tensor_dense_bias_0_dim                  0x08005fb0   Data           2  main.o(.rodata.tensor_dense_bias_0_dim)
+    tensor_dense_bias_0_offset               0x08005fb4   Data           4  main.o(.rodata.tensor_dense_bias_0_offset)
+    tensor_dense_kernel_0                    0x08005fb8   Data          20  main.o(.rodata.tensor_dense_kernel_0)
+    tensor_dense_kernel_0_data               0x08005fcc   Data         975  main.o(.rodata.tensor_dense_kernel_0_data)
+    tensor_dense_kernel_0_dec                0x0800639c   Data           4  main.o(.rodata.tensor_dense_kernel_0_dec)
+    tensor_dense_kernel_0_dim                0x080063a0   Data           4  main.o(.rodata.tensor_dense_kernel_0_dim)
+    tensor_dense_kernel_0_offset             0x080063a4   Data           4  main.o(.rodata.tensor_dense_kernel_0_offset)
+    tensor_input_1                           0x080063a8   Data          20  main.o(.rodata.tensor_input_1)
+    tensor_input_1_dec                       0x080063bc   Data           4  main.o(.rodata.tensor_input_1_dec)
+    tensor_input_1_dim                       0x080063c0   Data           4  main.o(.rodata.tensor_input_1_dim)
+    tensor_input_1_offset                    0x080063c4   Data           4  main.o(.rodata.tensor_input_1_offset)
+    tensor_output0                           0x080063c8   Data          20  main.o(.rodata.tensor_output0)
+    tensor_output0_dec                       0x080063dc   Data           4  main.o(.rodata.tensor_output0_dec)
+    tensor_output0_dim                       0x080063e0   Data           2  main.o(.rodata.tensor_output0_dim)
+    tensor_output0_offset                    0x080063e4   Data           4  main.o(.rodata.tensor_output0_offset)
+    Region$$Table$$Base                      0x080063e8   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08006408   Number         0  anon$$obj.o(Region$$Table)
     __stdout                                 0x20000000   Data           4  stdout.o(.data)
     model_output                             0x20000004   Data           1  main.o(.data.model_output)
     turn_off                                 0x20000005   Data           8  main.o(.data.turn_off)
@@ -4198,57 +4222,57 @@ Memory Map of the image
 
   Image Entry point : 0x080000ed
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00006440, Max: 0x00010000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00006420, Max: 0x00010000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00006424, Max: 0x00010000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00006408, Max: 0x00010000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x08000000   0x08000000   0x000000ec   Data   RO            3    RESET               startup_stm32f10x_md.o
-    0x080000ec   0x080000ec   0x00000000   Code   RO         2175  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x080000ec   0x080000ec   0x00000004   Code   RO         2489    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
-    0x080000f0   0x080000f0   0x00000004   Code   RO         2492    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x080000f4   0x080000f4   0x00000000   Code   RO         2494    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x080000f4   0x080000f4   0x00000000   Code   RO         2496    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x080000f4   0x080000f4   0x00000008   Code   RO         2497    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x080000fc   0x080000fc   0x00000000   Code   RO         2499    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
-    0x080000fc   0x080000fc   0x00000000   Code   RO         2501    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
-    0x080000fc   0x080000fc   0x00000004   Code   RO         2490    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
+    0x080000ec   0x080000ec   0x00000000   Code   RO         2183  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x080000ec   0x080000ec   0x00000004   Code   RO         2497    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
+    0x080000f0   0x080000f0   0x00000004   Code   RO         2500    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x080000f4   0x080000f4   0x00000000   Code   RO         2502    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x080000f4   0x080000f4   0x00000000   Code   RO         2504    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x080000f4   0x080000f4   0x00000008   Code   RO         2505    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x080000fc   0x080000fc   0x00000000   Code   RO         2507    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x080000fc   0x080000fc   0x00000000   Code   RO         2509    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x080000fc   0x080000fc   0x00000004   Code   RO         2498    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
     0x08000100   0x08000100   0x00000024   Code   RO            4    .text               startup_stm32f10x_md.o
-    0x08000124   0x08000124   0x00000062   Code   RO         2184    .text               mc_w.l(uldiv.o)
-    0x08000186   0x08000186   0x00000024   Code   RO         2188    .text               mc_w.l(memcpya.o)
-    0x080001aa   0x080001aa   0x00000024   Code   RO         2190    .text               mc_w.l(memseta.o)
-    0x080001ce   0x080001ce   0x000000b0   Code   RO         2455    .text               mf_w.l(fadd.o)
-    0x0800027e   0x0800027e   0x00000064   Code   RO         2457    .text               mf_w.l(fmul.o)
-    0x080002e2   0x080002e2   0x0000014e   Code   RO         2461    .text               mf_w.l(dadd.o)
-    0x08000430   0x08000430   0x000000e4   Code   RO         2463    .text               mf_w.l(dmul.o)
-    0x08000514   0x08000514   0x0000001c   Code   RO         2467    .text               mf_w.l(fcmpge.o)
-    0x08000530   0x08000530   0x0000000a   Code   RO         2473    .text               mf_w.l(ffltui.o)
-    0x0800053a   0x0800053a   0x00000022   Code   RO         2475    .text               mf_w.l(dflti.o)
-    0x0800055c   0x0800055c   0x00000028   Code   RO         2479    .text               mf_w.l(ffixui.o)
-    0x08000584   0x08000584   0x0000003e   Code   RO         2481    .text               mf_w.l(dfixi.o)
-    0x080005c2   0x080005c2   0x00000032   Code   RO         2483    .text               mf_w.l(dfixui.o)
-    0x080005f4   0x080005f4   0x00000026   Code   RO         2485    .text               mf_w.l(f2d.o)
-    0x0800061a   0x0800061a   0x00000038   Code   RO         2487    .text               mf_w.l(d2f.o)
-    0x08000652   0x08000652   0x0000002c   Code   RO         2513    .text               mc_w.l(uidiv.o)
-    0x0800067e   0x0800067e   0x0000001e   Code   RO         2515    .text               mc_w.l(llshl.o)
-    0x0800069c   0x0800069c   0x00000020   Code   RO         2517    .text               mc_w.l(llushr.o)
-    0x080006bc   0x080006bc   0x00000024   Code   RO         2519    .text               mc_w.l(llsshr.o)
-    0x080006e0   0x080006e0   0x00000000   Code   RO         2521    .text               mc_w.l(iusefp.o)
-    0x080006e0   0x080006e0   0x0000006e   Code   RO         2522    .text               mf_w.l(fepilogue.o)
-    0x0800074e   0x0800074e   0x000000ba   Code   RO         2524    .text               mf_w.l(depilogue.o)
-    0x08000808   0x08000808   0x000000de   Code   RO         2526    .text               mf_w.l(ddiv.o)
+    0x08000124   0x08000124   0x00000062   Code   RO         2192    .text               mc_w.l(uldiv.o)
+    0x08000186   0x08000186   0x00000024   Code   RO         2196    .text               mc_w.l(memcpya.o)
+    0x080001aa   0x080001aa   0x00000024   Code   RO         2198    .text               mc_w.l(memseta.o)
+    0x080001ce   0x080001ce   0x000000b0   Code   RO         2463    .text               mf_w.l(fadd.o)
+    0x0800027e   0x0800027e   0x00000064   Code   RO         2465    .text               mf_w.l(fmul.o)
+    0x080002e2   0x080002e2   0x0000014e   Code   RO         2469    .text               mf_w.l(dadd.o)
+    0x08000430   0x08000430   0x000000e4   Code   RO         2471    .text               mf_w.l(dmul.o)
+    0x08000514   0x08000514   0x0000001c   Code   RO         2475    .text               mf_w.l(fcmpge.o)
+    0x08000530   0x08000530   0x0000000a   Code   RO         2481    .text               mf_w.l(ffltui.o)
+    0x0800053a   0x0800053a   0x00000022   Code   RO         2483    .text               mf_w.l(dflti.o)
+    0x0800055c   0x0800055c   0x00000028   Code   RO         2487    .text               mf_w.l(ffixui.o)
+    0x08000584   0x08000584   0x0000003e   Code   RO         2489    .text               mf_w.l(dfixi.o)
+    0x080005c2   0x080005c2   0x00000032   Code   RO         2491    .text               mf_w.l(dfixui.o)
+    0x080005f4   0x080005f4   0x00000026   Code   RO         2493    .text               mf_w.l(f2d.o)
+    0x0800061a   0x0800061a   0x00000038   Code   RO         2495    .text               mf_w.l(d2f.o)
+    0x08000652   0x08000652   0x0000002c   Code   RO         2521    .text               mc_w.l(uidiv.o)
+    0x0800067e   0x0800067e   0x0000001e   Code   RO         2523    .text               mc_w.l(llshl.o)
+    0x0800069c   0x0800069c   0x00000020   Code   RO         2525    .text               mc_w.l(llushr.o)
+    0x080006bc   0x080006bc   0x00000024   Code   RO         2527    .text               mc_w.l(llsshr.o)
+    0x080006e0   0x080006e0   0x00000000   Code   RO         2529    .text               mc_w.l(iusefp.o)
+    0x080006e0   0x080006e0   0x0000006e   Code   RO         2530    .text               mf_w.l(fepilogue.o)
+    0x0800074e   0x0800074e   0x000000ba   Code   RO         2532    .text               mf_w.l(depilogue.o)
+    0x08000808   0x08000808   0x000000de   Code   RO         2534    .text               mf_w.l(ddiv.o)
     0x080008e6   0x080008e6   0x00000002   PAD
-    0x080008e8   0x080008e8   0x00000088   Code   RO         2528    .text               mf_w.l(drnd.o)
-    0x08000970   0x08000970   0x00000030   Code   RO         2530    .text               mf_w.l(dfixul.o)
-    0x080009a0   0x080009a0   0x00000030   Code   RO         2532    .text               mf_w.l(cdcmple.o)
-    0x080009d0   0x080009d0   0x00000030   Code   RO         2534    .text               mf_w.l(cdrcmple.o)
-    0x08000a00   0x08000a00   0x00000030   Code   RO         2536    .text               mc_w.l(init.o)
-    0x08000a30   0x08000a30   0x00000002   Code   RO         1368    .text.BusFault_Handler  stm32f10x_it.o
+    0x080008e8   0x080008e8   0x00000088   Code   RO         2536    .text               mf_w.l(drnd.o)
+    0x08000970   0x08000970   0x00000030   Code   RO         2538    .text               mf_w.l(dfixul.o)
+    0x080009a0   0x080009a0   0x00000030   Code   RO         2540    .text               mf_w.l(cdcmple.o)
+    0x080009d0   0x080009d0   0x00000030   Code   RO         2542    .text               mf_w.l(cdrcmple.o)
+    0x08000a00   0x08000a00   0x00000030   Code   RO         2544    .text               mc_w.l(init.o)
+    0x08000a30   0x08000a30   0x00000002   Code   RO         1376    .text.BusFault_Handler  stm32f10x_it.o
     0x08000a32   0x08000a32   0x00000002   PAD
-    0x08000a34   0x08000a34   0x00000002   Code   RO         1374    .text.DebugMon_Handler  stm32f10x_it.o
+    0x08000a34   0x08000a34   0x00000002   Code   RO         1382    .text.DebugMon_Handler  stm32f10x_it.o
     0x08000a36   0x08000a36   0x00000002   PAD
-    0x08000a38   0x08000a38   0x00000028   Code   RO         1288    .text.EXTI15_10_IRQHandler  main.o
+    0x08000a38   0x08000a38   0x00000028   Code   RO         1290    .text.EXTI15_10_IRQHandler  main.o
     0x08000a60   0x08000a60   0x0000000c   Code   RO          357    .text.EXTI_ClearITPendingBit  stm32f10x_exti.o
     0x08000a6c   0x08000a6c   0x0000001e   Code   RO          355    .text.EXTI_GetITStatus  stm32f10x_exti.o
     0x08000a8a   0x08000a8a   0x00000002   PAD
@@ -4257,7 +4281,7 @@ Memory Map of the image
     0x08000b2a   0x08000b2a   0x00000002   PAD
     0x08000b2c   0x08000b2c   0x000000bc   Code   RO          481    .text.GPIO_Init     stm32f10x_gpio.o
     0x08000be8   0x08000be8   0x0000000c   Code   RO          497    .text.GPIO_WriteBit  stm32f10x_gpio.o
-    0x08000bf4   0x08000bf4   0x00000002   Code   RO         1364    .text.HardFault_Handler  stm32f10x_it.o
+    0x08000bf4   0x08000bf4   0x00000002   Code   RO         1372    .text.HardFault_Handler  stm32f10x_it.o
     0x08000bf6   0x08000bf6   0x00000002   PAD
     0x08000bf8   0x08000bf8   0x00000014   Code   RO          538    .text.I2C_AcknowledgeConfig  stm32f10x_i2c.o
     0x08000c0c   0x08000c0c   0x00000016   Code   RO          576    .text.I2C_CheckEvent  stm32f10x_i2c.o
@@ -4281,9 +4305,9 @@ Memory Map of the image
     0x08000f12   0x08000f12   0x00000002   PAD
     0x08000f14   0x08000f14   0x00000108   Code   RO         1262    .text.MPU6050_ReadReg  mpu6050.o
     0x0800101c   0x0800101c   0x000000b4   Code   RO         1260    .text.MPU6050_WriteReg  mpu6050.o
-    0x080010d0   0x080010d0   0x00000002   Code   RO         1366    .text.MemManage_Handler  stm32f10x_it.o
+    0x080010d0   0x080010d0   0x00000002   Code   RO         1374    .text.MemManage_Handler  stm32f10x_it.o
     0x080010d2   0x080010d2   0x00000002   PAD
-    0x080010d4   0x080010d4   0x00000002   Code   RO         1362    .text.NMI_Handler   stm32f10x_it.o
+    0x080010d4   0x080010d4   0x00000002   Code   RO         1370    .text.NMI_Handler   stm32f10x_it.o
     0x080010d6   0x080010d6   0x00000002   PAD
     0x080010d8   0x080010d8   0x0000005e   Code   RO           27    .text.NVIC_Init     misc.o
     0x08001136   0x08001136   0x00000002   PAD
@@ -4301,14 +4325,14 @@ Memory Map of the image
     0x080014d2   0x080014d2   0x00000002   PAD
     0x080014d4   0x080014d4   0x00000076   Code   RO         1199    .text.OLED_WriteData  oled.o
     0x0800154a   0x0800154a   0x00000002   PAD
-    0x0800154c   0x0800154c   0x00000002   Code   RO         1376    .text.PendSV_Handler  stm32f10x_it.o
+    0x0800154c   0x0800154c   0x00000002   Code   RO         1384    .text.PendSV_Handler  stm32f10x_it.o
     0x0800154e   0x0800154e   0x00000002   PAD
     0x08001550   0x08001550   0x00000018   Code   RO          688    .text.RCC_APB1PeriphClockCmd  stm32f10x_rcc.o
     0x08001568   0x08001568   0x00000018   Code   RO          686    .text.RCC_APB2PeriphClockCmd  stm32f10x_rcc.o
     0x08001580   0x08001580   0x0000008c   Code   RO          682    .text.RCC_GetClocksFreq  stm32f10x_rcc.o
-    0x0800160c   0x0800160c   0x00000002   Code   RO         1372    .text.SVC_Handler   stm32f10x_it.o
+    0x0800160c   0x0800160c   0x00000002   Code   RO         1380    .text.SVC_Handler   stm32f10x_it.o
     0x0800160e   0x0800160e   0x00000002   PAD
-    0x08001610   0x08001610   0x00000138   Code   RO         1282    .text.SYS_INIT      main.o
+    0x08001610   0x08001610   0x00000138   Code   RO         1284    .text.SYS_INIT      main.o
     0x08001748   0x08001748   0x0000008c   Code   RO         1242    .text.Serial_AutoSendNumber  serial.o
     0x080017d4   0x080017d4   0x0000005a   Code   RO         1230    .text.Serial_Init   serial.o
     0x0800182e   0x0800182e   0x00000002   PAD
@@ -4317,7 +4341,7 @@ Memory Map of the image
     0x0800186c   0x0800186c   0x0000009e   Code   RO         1244    .text.Serial_SendFloat  serial.o
     0x0800190a   0x0800190a   0x00000002   PAD
     0x0800190c   0x0800190c   0x00000038   Code   RO         1236    .text.Serial_SendString  serial.o
-    0x08001944   0x08001944   0x00000002   Code   RO         1378    .text.SysTick_Handler  stm32f10x_it.o
+    0x08001944   0x08001944   0x00000002   Code   RO         1386    .text.SysTick_Handler  stm32f10x_it.o
     0x08001946   0x08001946   0x00000002   PAD
     0x08001948   0x08001948   0x0000010c   Code   RO           11    .text.SystemInit    system_stm32f10x.o
     0x08001a54   0x08001a54   0x00000014   Code   RO         1066    .text.USART_Cmd     stm32f10x_usart.o
@@ -4326,211 +4350,211 @@ Memory Map of the image
     0x08001a74   0x08001a74   0x000000b6   Code   RO         1058    .text.USART_Init    stm32f10x_usart.o
     0x08001b2a   0x08001b2a   0x00000002   PAD
     0x08001b2c   0x08001b2c   0x00000008   Code   RO         1082    .text.USART_SendData  stm32f10x_usart.o
-    0x08001b34   0x08001b34   0x00000002   Code   RO         1370    .text.UsageFault_Handler  stm32f10x_it.o
+    0x08001b34   0x08001b34   0x00000002   Code   RO         1378    .text.UsageFault_Handler  stm32f10x_it.o
     0x08001b36   0x08001b36   0x00000002   PAD
-    0x08001b38   0x08001b38   0x0000000e   Code   RO         1760    .text.act_get_dec_bit  nnom_activation.o
+    0x08001b38   0x08001b38   0x0000000e   Code   RO         1768    .text.act_get_dec_bit  nnom_activation.o
     0x08001b46   0x08001b46   0x00000002   PAD
-    0x08001b48   0x08001b48   0x00000020   Code   RO         1720    .text.act_relu      nnom_activation.o
-    0x08001b68   0x08001b68   0x000000b8   Code   RO         1609    .text.check_model_version  nnom.o
-    0x08001c20   0x08001c20   0x000006f0   Code   RO         1585    .text.compile_layers  nnom.o
-    0x08002310   0x08002310   0x00000104   Code   RO         1822    .text.conv2d_build  nnom_conv2d.o
-    0x08002414   0x08002414   0x00000022   Code   RO         1824    .text.conv2d_free   nnom_conv2d.o
+    0x08001b48   0x08001b48   0x00000020   Code   RO         1728    .text.act_relu      nnom_activation.o
+    0x08001b68   0x08001b68   0x000000b8   Code   RO         1617    .text.check_model_version  nnom.o
+    0x08001c20   0x08001c20   0x000006f0   Code   RO         1593    .text.compile_layers  nnom.o
+    0x08002310   0x08002310   0x00000104   Code   RO         1830    .text.conv2d_build  nnom_conv2d.o
+    0x08002414   0x08002414   0x00000022   Code   RO         1832    .text.conv2d_free   nnom_conv2d.o
     0x08002436   0x08002436   0x00000002   PAD
-    0x08002438   0x08002438   0x00000100   Code   RO         1820    .text.conv2d_run    nnom_conv2d.o
-    0x08002538   0x08002538   0x00000158   Code   RO         1818    .text.conv2d_s      nnom_conv2d.o
-    0x08002690   0x08002690   0x00000046   Code   RO         1792    .text.default_build  nnom_baselayer.o
+    0x08002438   0x08002438   0x00000100   Code   RO         1828    .text.conv2d_run    nnom_conv2d.o
+    0x08002538   0x08002538   0x00000158   Code   RO         1826    .text.conv2d_s      nnom_conv2d.o
+    0x08002690   0x08002690   0x00000046   Code   RO         1800    .text.default_build  nnom_baselayer.o
     0x080026d6   0x080026d6   0x00000002   PAD
-    0x080026d8   0x080026d8   0x0000000a   Code   RO         1659    .text.delete_tensor  nnom_tensor.o
+    0x080026d8   0x080026d8   0x0000000a   Code   RO         1667    .text.delete_tensor  nnom_tensor.o
     0x080026e2   0x080026e2   0x00000002   PAD
-    0x080026e4   0x080026e4   0x000000ce   Code   RO         1876    .text.dense_build   nnom_dense.o
+    0x080026e4   0x080026e4   0x000000ce   Code   RO         1884    .text.dense_build   nnom_dense.o
     0x080027b2   0x080027b2   0x00000002   PAD
-    0x080027b4   0x080027b4   0x00000022   Code   RO         1878    .text.dense_free    nnom_dense.o
+    0x080027b4   0x080027b4   0x00000022   Code   RO         1886    .text.dense_free    nnom_dense.o
     0x080027d6   0x080027d6   0x00000002   PAD
-    0x080027d8   0x080027d8   0x0000005a   Code   RO         1874    .text.dense_run     nnom_dense.o
+    0x080027d8   0x080027d8   0x0000005a   Code   RO         1882    .text.dense_run     nnom_dense.o
     0x08002832   0x08002832   0x00000002   PAD
-    0x08002834   0x08002834   0x00000082   Code   RO         1872    .text.dense_s       nnom_dense.o
+    0x08002834   0x08002834   0x00000082   Code   RO         1880    .text.dense_s       nnom_dense.o
     0x080028b6   0x080028b6   0x00000002   PAD
-    0x080028b8   0x080028b8   0x0000000a   Code   RO         1635    .text.dilation      nnom_layers.o
+    0x080028b8   0x080028b8   0x0000000a   Code   RO         1643    .text.dilation      nnom_layers.o
     0x080028c2   0x080028c2   0x00000002   PAD
-    0x080028c4   0x080028c4   0x00000054   Code   RO         1912    .text.flatten_build  nnom_flatten.o
-    0x08002918   0x08002918   0x00000004   Code   RO         1910    .text.flatten_run   nnom_flatten.o
-    0x0800291c   0x0800291c   0x0000005c   Code   RO         1906    .text.flatten_s     nnom_flatten.o
+    0x080028c4   0x080028c4   0x00000054   Code   RO         1920    .text.flatten_build  nnom_flatten.o
+    0x08002918   0x08002918   0x00000004   Code   RO         1918    .text.flatten_run   nnom_flatten.o
+    0x0800291c   0x0800291c   0x0000005c   Code   RO         1914    .text.flatten_s     nnom_flatten.o
     0x08002978   0x08002978   0x00000024   Code   RO         1246    .text.fputc         serial.o
-    0x0800299c   0x0800299c   0x00000028   Code   RO         1964    .text.input_build   nnom_input.o
-    0x080029c4   0x080029c4   0x0000001e   Code   RO         1962    .text.input_run     nnom_input.o
+    0x0800299c   0x0800299c   0x00000028   Code   RO         1972    .text.input_build   nnom_input.o
+    0x080029c4   0x080029c4   0x0000001e   Code   RO         1970    .text.input_run     nnom_input.o
     0x080029e2   0x080029e2   0x00000002   PAD
-    0x080029e4   0x080029e4   0x000000de   Code   RO         1960    .text.input_s       nnom_input.o
+    0x080029e4   0x080029e4   0x000000de   Code   RO         1968    .text.input_s       nnom_input.o
     0x08002ac2   0x08002ac2   0x00000002   PAD
-    0x08002ac4   0x08002ac4   0x00000008   Code   RO         1639    .text.io_init       nnom_layers.o
-    0x08002acc   0x08002acc   0x0000000a   Code   RO         1631    .text.kernel        nnom_layers.o
+    0x08002ac4   0x08002ac4   0x00000008   Code   RO         1647    .text.io_init       nnom_layers.o
+    0x08002acc   0x08002acc   0x0000000a   Code   RO         1639    .text.kernel        nnom_layers.o
     0x08002ad6   0x08002ad6   0x00000002   PAD
-    0x08002ad8   0x08002ad8   0x00000242   Code   RO         1489    .text.local_convolve_HWC_q15_nonsquare  nnom_local_q15.o
+    0x08002ad8   0x08002ad8   0x00000242   Code   RO         1497    .text.local_convolve_HWC_q15_nonsquare  nnom_local_q15.o
     0x08002d1a   0x08002d1a   0x00000002   PAD
-    0x08002d1c   0x08002d1c   0x0000022c   Code   RO         1403    .text.local_convolve_HWC_q7_nonsquare  nnom_local.o
-    0x08002f48   0x08002f48   0x00000238   Code   RO         1425    .text.local_fully_connected_q7_opt  nnom_local.o
-    0x08003180   0x08003180   0x00000104   Code   RO         1391    .text.local_maxpool_q7_HWC  nnom_local.o
-    0x08003284   0x08003284   0x0000001e   Code   RO         1521    .text.local_relu_q15  nnom_local_q15.o
+    0x08002d1c   0x08002d1c   0x0000022c   Code   RO         1411    .text.local_convolve_HWC_q7_nonsquare  nnom_local.o
+    0x08002f48   0x08002f48   0x00000238   Code   RO         1433    .text.local_fully_connected_q7_opt  nnom_local.o
+    0x08003180   0x08003180   0x00000104   Code   RO         1399    .text.local_maxpool_q7_HWC  nnom_local.o
+    0x08003284   0x08003284   0x0000001e   Code   RO         1529    .text.local_relu_q15  nnom_local_q15.o
     0x080032a2   0x080032a2   0x00000002   PAD
-    0x080032a4   0x080032a4   0x0000001e   Code   RO         1439    .text.local_relu_q7  nnom_local.o
+    0x080032a4   0x080032a4   0x0000001e   Code   RO         1447    .text.local_relu_q7  nnom_local.o
     0x080032c2   0x080032c2   0x00000002   PAD
-    0x080032c4   0x080032c4   0x00000092   Code   RO         1429    .text.local_softmax_q7  nnom_local.o
+    0x080032c4   0x080032c4   0x00000092   Code   RO         1437    .text.local_softmax_q7  nnom_local.o
     0x08003356   0x08003356   0x00000002   PAD
-    0x08003358   0x08003358   0x00000128   Code   RO         1280    .text.main          main.o
-    0x08003480   0x08003480   0x0000009e   Code   RO         2040    .text.maxpool_build  nnom_maxpool.o
-    0x0800351e   0x0800351e   0x00000002   PAD
-    0x08003520   0x08003520   0x0000006c   Code   RO         2038    .text.maxpool_run   nnom_maxpool.o
-    0x0800358c   0x0800358c   0x00000186   Code   RO         2034    .text.maxpool_s     nnom_maxpool.o
-    0x08003712   0x08003712   0x00000002   PAD
-    0x08003714   0x08003714   0x00000008   Code   RO         1577    .text.model_active  nnom.o
-    0x0800371c   0x0800371c   0x00000038   Code   RO         1569    .text.model_add     nnom.o
-    0x08003754   0x08003754   0x000002a8   Code   RO         1595    .text.model_compile  nnom.o
-    0x080039fc   0x080039fc   0x00000190   Code   RO         1284    .text.model_feed_data  main.o
-    0x08003b8c   0x08003b8c   0x00000140   Code   RO         1571    .text.model_hook    nnom.o
-    0x08003ccc   0x08003ccc   0x0000000a   Code   RO         1573    .text.model_merge   nnom.o
-    0x08003cd6   0x08003cd6   0x00000002   PAD
-    0x08003cd8   0x08003cd8   0x0000003a   Code   RO         1575    .text.model_mergex  nnom.o
-    0x08003d12   0x08003d12   0x00000002   PAD
-    0x08003d14   0x08003d14   0x00000006   Code   RO         1603    .text.model_run     nnom.o
-    0x08003d1a   0x08003d1a   0x00000002   PAD
-    0x08003d1c   0x08003d1c   0x00000100   Code   RO         1601    .text.model_run_to  nnom.o
-    0x08003e1c   0x08003e1c   0x000000b0   Code   RO         1567    .text.new_model     nnom.o
-    0x08003ecc   0x08003ecc   0x00000098   Code   RO         1657    .text.new_tensor    nnom_tensor.o
-    0x08003f64   0x08003f64   0x00000012   Code   RO         1559    .text.nnom_alignto  nnom.o
-    0x08003f76   0x08003f76   0x00000002   PAD
-    0x08003f78   0x08003f78   0x00000002   Code   RO         1561    .text.nnom_free     nnom.o
-    0x08003f7a   0x08003f7a   0x00000002   PAD
-    0x08003f7c   0x08003f7c   0x00000080   Code   RO         1563    .text.nnom_mem      nnom.o
-    0x08003ffc   0x08003ffc   0x00000022   Code   RO         1555    .text.nnom_set_static_buf  nnom.o
-    0x0800401e   0x0800401e   0x00000002   PAD
-    0x08004020   0x08004020   0x00000020   Code   RO         2052    .text.output_run    nnom_output.o
-    0x08004040   0x08004040   0x00000038   Code   RO         2050    .text.output_s      nnom_output.o
-    0x08004078   0x08004078   0x00000024   Code   RO         1742    .text.relu_run      nnom_activation.o
-    0x0800409c   0x0800409c   0x00000008   Code   RO         1629    .text.shape         nnom_layers.o
-    0x080040a4   0x080040a4   0x00000036   Code   RO         2116    .text.softmax_build  nnom_softmax.o
-    0x080040da   0x080040da   0x00000002   PAD
-    0x080040dc   0x080040dc   0x00000024   Code   RO         2114    .text.softmax_run   nnom_softmax.o
-    0x08004100   0x08004100   0x00000058   Code   RO         2110    .text.softmax_s     nnom_softmax.o
-    0x08004158   0x08004158   0x0000000a   Code   RO         1633    .text.stride        nnom_layers.o
-    0x08004162   0x08004162   0x00000002   PAD
-    0x08004164   0x08004164   0x00000062   Code   RO         1665    .text.tensor_cpy_attr  nnom_tensor.o
-    0x080041c6   0x080041c6   0x00000002   PAD
-    0x080041c8   0x080041c8   0x0000000e   Code   RO         1655    .text.tensor_get_num_channel  nnom_tensor.o
-    0x080041d6   0x080041d6   0x00000002   PAD
-    0x080041d8   0x080041d8   0x00000050   Code   RO         1663    .text.tensor_set_attr  nnom_tensor.o
-    0x08004228   0x08004228   0x0000002a   Code   RO         1661    .text.tensor_set_attr_v  nnom_tensor.o
-    0x08004252   0x08004252   0x00000002   PAD
-    0x08004254   0x08004254   0x00000028   Code   RO         1651    .text.tensor_size   nnom_tensor.o
-    0x0800427c   0x0800427c   0x00000020   Code   RO         2427    i.__0printf         mc_w.l(printfa.o)
-    0x0800429c   0x0800429c   0x0000000e   Code   RO         2540    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x080042aa   0x080042aa   0x00000002   Code   RO         2541    i.__scatterload_null  mc_w.l(handlers.o)
-    0x080042ac   0x080042ac   0x0000000e   Code   RO         2542    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x080042ba   0x080042ba   0x00000002   PAD
-    0x080042bc   0x080042bc   0x00000184   Code   RO         2434    i._fp_digits        mc_w.l(printfa.o)
-    0x08004440   0x08004440   0x000006dc   Code   RO         2435    i._printf_core      mc_w.l(printfa.o)
-    0x08004b1c   0x08004b1c   0x00000024   Code   RO         2436    i._printf_post_padding  mc_w.l(printfa.o)
-    0x08004b40   0x08004b40   0x0000002e   Code   RO         2437    i._printf_pre_padding  mc_w.l(printfa.o)
-    0x08004b6e   0x08004b6e   0x00000002   PAD
-    0x08004b70   0x08004b70   0x0000000c   Code   RO         2180    i.putchar           mc_w.l(putchar.o)
-    0x08004b7c   0x08004b7c   0x00000024   Code   RO         2178    i.puts              mc_w.l(puts.o)
-    0x08004ba0   0x08004ba0   0x00000094   Code   RO         2173    i.round             m_ws.l(round.o)
-    0x08004c34   0x08004c34   0x00000004   Data   RO          707    .rodata.ADCPrescTable  stm32f10x_rcc.o
-    0x08004c38   0x08004c38   0x00000010   Data   RO          706    .rodata.APBAHBPrescTable  stm32f10x_rcc.o
-    0x08004c48   0x08004c48   0x000005f0   Data   RO         1221    .rodata.OLED_F8x16  oled.o
-    0x08005238   0x08005238   0x00000004   Data   RO         1321    .rodata.conv1d_1_bias_shift  main.o
-    0x0800523c   0x0800523c   0x00000028   Data   RO         1322    .rodata.conv1d_1_config  main.o
-    0x08005264   0x08005264   0x00000004   Data   RO         1320    .rodata.conv1d_1_output_shift  main.o
-    0x08005268   0x08005268   0x00000004   Data   RO         1308    .rodata.conv1d_bias_shift  main.o
-    0x0800526c   0x0800526c   0x00000028   Data   RO         1309    .rodata.conv1d_config  main.o
-    0x08005294   0x08005294   0x00000004   Data   RO         1307    .rodata.conv1d_output_shift  main.o
-    0x08005298   0x08005298   0x00000040   Data   RO         1612    .rodata.default_activation_names  nnom.o
-    0x080052d8   0x080052d8   0x00000020   Data   RO         1613    .rodata.default_cell_names  nnom.o
-    0x080052f8   0x080052f8   0x0000018c   Data   RO         1611    .rodata.default_layer_names  nnom.o
-    0x08005484   0x08005484   0x00000004   Data   RO         1336    .rodata.dense_bias_shift  main.o
-    0x08005488   0x08005488   0x00000018   Data   RO         1337    .rodata.dense_config  main.o
-    0x080054a0   0x080054a0   0x00000004   Data   RO         1335    .rodata.dense_output_shift  main.o
-    0x080054a4   0x080054a4   0x00000004   Data   RO         1324    .rodata.flatten_config  main.o
-    0x080054a8   0x080054a8   0x00000008   Data   RO         1296    .rodata.input_1_config  main.o
-    0x080054b0   0x080054b0   0x00000010   Data   RO         1323    .rodata.max_pooling1d_config  main.o
-    0x080054c0   0x080054c0   0x00000008   Data   RO         1344    .rodata.output0_config  main.o
-    0x080054c8   0x080054c8   0x00000004   Data   RO         1338    .rodata.softmax_config  main.o
-    0x080054cc   0x080054cc   0x00000044   Data   RO         1295    .rodata.str1.1      main.o
-    0x08005510   0x08005510   0x00000384   Data   RO         1618    .rodata.str1.1      nnom.o
-    0x08005894   0x08005894   0x00000014   Data   RO         1319    .rodata.tensor_conv1d_1_bias_0  main.o
-    0x080058a8   0x080058a8   0x0000000f   Data   RO         1315    .rodata.tensor_conv1d_1_bias_0_data  main.o
-    0x080058b7   0x080058b7   0x00000001   PAD
-    0x080058b8   0x080058b8   0x00000004   Data   RO         1317    .rodata.tensor_conv1d_1_bias_0_dec  main.o
-    0x080058bc   0x080058bc   0x00000002   Data   RO         1316    .rodata.tensor_conv1d_1_bias_0_dim  main.o
-    0x080058be   0x080058be   0x00000002   PAD
-    0x080058c0   0x080058c0   0x00000004   Data   RO         1318    .rodata.tensor_conv1d_1_bias_0_offset  main.o
-    0x080058c4   0x080058c4   0x00000014   Data   RO         1314    .rodata.tensor_conv1d_1_kernel_0  main.o
-    0x080058d8   0x080058d8   0x00000546   Data   RO         1310    .rodata.tensor_conv1d_1_kernel_0_data  main.o
-    0x08005e1e   0x08005e1e   0x00000002   PAD
-    0x08005e20   0x08005e20   0x00000004   Data   RO         1312    .rodata.tensor_conv1d_1_kernel_0_dec  main.o
-    0x08005e24   0x08005e24   0x00000006   Data   RO         1311    .rodata.tensor_conv1d_1_kernel_0_dim  main.o
-    0x08005e2a   0x08005e2a   0x00000002   PAD
-    0x08005e2c   0x08005e2c   0x00000004   Data   RO         1313    .rodata.tensor_conv1d_1_kernel_0_offset  main.o
-    0x08005e30   0x08005e30   0x00000014   Data   RO         1306    .rodata.tensor_conv1d_bias_0  main.o
-    0x08005e44   0x08005e44   0x0000001e   Data   RO         1302    .rodata.tensor_conv1d_bias_0_data  main.o
-    0x08005e62   0x08005e62   0x00000002   PAD
-    0x08005e64   0x08005e64   0x00000004   Data   RO         1304    .rodata.tensor_conv1d_bias_0_dec  main.o
-    0x08005e68   0x08005e68   0x00000002   Data   RO         1303    .rodata.tensor_conv1d_bias_0_dim  main.o
-    0x08005e6a   0x08005e6a   0x00000002   PAD
-    0x08005e6c   0x08005e6c   0x00000004   Data   RO         1305    .rodata.tensor_conv1d_bias_0_offset  main.o
-    0x08005e70   0x08005e70   0x00000014   Data   RO         1301    .rodata.tensor_conv1d_kernel_0  main.o
-    0x08005e84   0x08005e84   0x0000010e   Data   RO         1297    .rodata.tensor_conv1d_kernel_0_data  main.o
-    0x08005f92   0x08005f92   0x00000002   PAD
-    0x08005f94   0x08005f94   0x00000004   Data   RO         1299    .rodata.tensor_conv1d_kernel_0_dec  main.o
-    0x08005f98   0x08005f98   0x00000006   Data   RO         1298    .rodata.tensor_conv1d_kernel_0_dim  main.o
-    0x08005f9e   0x08005f9e   0x00000002   PAD
-    0x08005fa0   0x08005fa0   0x00000004   Data   RO         1300    .rodata.tensor_conv1d_kernel_0_offset  main.o
-    0x08005fa4   0x08005fa4   0x00000014   Data   RO         1334    .rodata.tensor_dense_bias_0  main.o
-    0x08005fb8   0x08005fb8   0x0000000d   Data   RO         1330    .rodata.tensor_dense_bias_0_data  main.o
-    0x08005fc5   0x08005fc5   0x00000003   PAD
-    0x08005fc8   0x08005fc8   0x00000004   Data   RO         1332    .rodata.tensor_dense_bias_0_dec  main.o
-    0x08005fcc   0x08005fcc   0x00000002   Data   RO         1331    .rodata.tensor_dense_bias_0_dim  main.o
-    0x08005fce   0x08005fce   0x00000002   PAD
-    0x08005fd0   0x08005fd0   0x00000004   Data   RO         1333    .rodata.tensor_dense_bias_0_offset  main.o
-    0x08005fd4   0x08005fd4   0x00000014   Data   RO         1329    .rodata.tensor_dense_kernel_0  main.o
-    0x08005fe8   0x08005fe8   0x000003cf   Data   RO         1325    .rodata.tensor_dense_kernel_0_data  main.o
-    0x080063b7   0x080063b7   0x00000001   PAD
-    0x080063b8   0x080063b8   0x00000004   Data   RO         1327    .rodata.tensor_dense_kernel_0_dec  main.o
-    0x080063bc   0x080063bc   0x00000004   Data   RO         1326    .rodata.tensor_dense_kernel_0_dim  main.o
-    0x080063c0   0x080063c0   0x00000004   Data   RO         1328    .rodata.tensor_dense_kernel_0_offset  main.o
-    0x080063c4   0x080063c4   0x00000014   Data   RO         1294    .rodata.tensor_input_1  main.o
-    0x080063d8   0x080063d8   0x00000004   Data   RO         1291    .rodata.tensor_input_1_dec  main.o
-    0x080063dc   0x080063dc   0x00000004   Data   RO         1290    .rodata.tensor_input_1_dim  main.o
-    0x080063e0   0x080063e0   0x00000004   Data   RO         1292    .rodata.tensor_input_1_offset  main.o
-    0x080063e4   0x080063e4   0x00000014   Data   RO         1343    .rodata.tensor_output0  main.o
-    0x080063f8   0x080063f8   0x00000004   Data   RO         1340    .rodata.tensor_output0_dec  main.o
-    0x080063fc   0x080063fc   0x00000002   Data   RO         1339    .rodata.tensor_output0_dim  main.o
-    0x080063fe   0x080063fe   0x00000002   PAD
-    0x08006400   0x08006400   0x00000004   Data   RO         1341    .rodata.tensor_output0_offset  main.o
-    0x08006404   0x08006404   0x00000020   Data   RO         2539    Region$$Table       anon$$obj.o
+    0x08003358   0x08003358   0x0000010c   Code   RO         1282    .text.main          main.o
+    0x08003464   0x08003464   0x0000009e   Code   RO         2048    .text.maxpool_build  nnom_maxpool.o
+    0x08003502   0x08003502   0x00000002   PAD
+    0x08003504   0x08003504   0x0000006c   Code   RO         2046    .text.maxpool_run   nnom_maxpool.o
+    0x08003570   0x08003570   0x00000186   Code   RO         2042    .text.maxpool_s     nnom_maxpool.o
+    0x080036f6   0x080036f6   0x00000002   PAD
+    0x080036f8   0x080036f8   0x00000008   Code   RO         1585    .text.model_active  nnom.o
+    0x08003700   0x08003700   0x00000038   Code   RO         1577    .text.model_add     nnom.o
+    0x08003738   0x08003738   0x000002a8   Code   RO         1603    .text.model_compile  nnom.o
+    0x080039e0   0x080039e0   0x00000190   Code   RO         1286    .text.model_feed_data  main.o
+    0x08003b70   0x08003b70   0x00000140   Code   RO         1579    .text.model_hook    nnom.o
+    0x08003cb0   0x08003cb0   0x0000000a   Code   RO         1581    .text.model_merge   nnom.o
+    0x08003cba   0x08003cba   0x00000002   PAD
+    0x08003cbc   0x08003cbc   0x0000003a   Code   RO         1583    .text.model_mergex  nnom.o
+    0x08003cf6   0x08003cf6   0x00000002   PAD
+    0x08003cf8   0x08003cf8   0x00000006   Code   RO         1611    .text.model_run     nnom.o
+    0x08003cfe   0x08003cfe   0x00000002   PAD
+    0x08003d00   0x08003d00   0x00000100   Code   RO         1609    .text.model_run_to  nnom.o
+    0x08003e00   0x08003e00   0x000000b0   Code   RO         1575    .text.new_model     nnom.o
+    0x08003eb0   0x08003eb0   0x00000098   Code   RO         1665    .text.new_tensor    nnom_tensor.o
+    0x08003f48   0x08003f48   0x00000012   Code   RO         1567    .text.nnom_alignto  nnom.o
+    0x08003f5a   0x08003f5a   0x00000002   PAD
+    0x08003f5c   0x08003f5c   0x00000002   Code   RO         1569    .text.nnom_free     nnom.o
+    0x08003f5e   0x08003f5e   0x00000002   PAD
+    0x08003f60   0x08003f60   0x00000080   Code   RO         1571    .text.nnom_mem      nnom.o
+    0x08003fe0   0x08003fe0   0x00000022   Code   RO         1563    .text.nnom_set_static_buf  nnom.o
+    0x08004002   0x08004002   0x00000002   PAD
+    0x08004004   0x08004004   0x00000020   Code   RO         2060    .text.output_run    nnom_output.o
+    0x08004024   0x08004024   0x00000038   Code   RO         2058    .text.output_s      nnom_output.o
+    0x0800405c   0x0800405c   0x00000024   Code   RO         1750    .text.relu_run      nnom_activation.o
+    0x08004080   0x08004080   0x00000008   Code   RO         1637    .text.shape         nnom_layers.o
+    0x08004088   0x08004088   0x00000036   Code   RO         2124    .text.softmax_build  nnom_softmax.o
+    0x080040be   0x080040be   0x00000002   PAD
+    0x080040c0   0x080040c0   0x00000024   Code   RO         2122    .text.softmax_run   nnom_softmax.o
+    0x080040e4   0x080040e4   0x00000058   Code   RO         2118    .text.softmax_s     nnom_softmax.o
+    0x0800413c   0x0800413c   0x0000000a   Code   RO         1641    .text.stride        nnom_layers.o
+    0x08004146   0x08004146   0x00000002   PAD
+    0x08004148   0x08004148   0x00000062   Code   RO         1673    .text.tensor_cpy_attr  nnom_tensor.o
+    0x080041aa   0x080041aa   0x00000002   PAD
+    0x080041ac   0x080041ac   0x0000000e   Code   RO         1663    .text.tensor_get_num_channel  nnom_tensor.o
+    0x080041ba   0x080041ba   0x00000002   PAD
+    0x080041bc   0x080041bc   0x00000050   Code   RO         1671    .text.tensor_set_attr  nnom_tensor.o
+    0x0800420c   0x0800420c   0x0000002a   Code   RO         1669    .text.tensor_set_attr_v  nnom_tensor.o
+    0x08004236   0x08004236   0x00000002   PAD
+    0x08004238   0x08004238   0x00000028   Code   RO         1659    .text.tensor_size   nnom_tensor.o
+    0x08004260   0x08004260   0x00000020   Code   RO         2435    i.__0printf         mc_w.l(printfa.o)
+    0x08004280   0x08004280   0x0000000e   Code   RO         2548    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x0800428e   0x0800428e   0x00000002   Code   RO         2549    i.__scatterload_null  mc_w.l(handlers.o)
+    0x08004290   0x08004290   0x0000000e   Code   RO         2550    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x0800429e   0x0800429e   0x00000002   PAD
+    0x080042a0   0x080042a0   0x00000184   Code   RO         2442    i._fp_digits        mc_w.l(printfa.o)
+    0x08004424   0x08004424   0x000006dc   Code   RO         2443    i._printf_core      mc_w.l(printfa.o)
+    0x08004b00   0x08004b00   0x00000024   Code   RO         2444    i._printf_post_padding  mc_w.l(printfa.o)
+    0x08004b24   0x08004b24   0x0000002e   Code   RO         2445    i._printf_pre_padding  mc_w.l(printfa.o)
+    0x08004b52   0x08004b52   0x00000002   PAD
+    0x08004b54   0x08004b54   0x0000000c   Code   RO         2188    i.putchar           mc_w.l(putchar.o)
+    0x08004b60   0x08004b60   0x00000024   Code   RO         2186    i.puts              mc_w.l(puts.o)
+    0x08004b84   0x08004b84   0x00000094   Code   RO         2181    i.round             m_ws.l(round.o)
+    0x08004c18   0x08004c18   0x00000004   Data   RO          707    .rodata.ADCPrescTable  stm32f10x_rcc.o
+    0x08004c1c   0x08004c1c   0x00000010   Data   RO          706    .rodata.APBAHBPrescTable  stm32f10x_rcc.o
+    0x08004c2c   0x08004c2c   0x000005f0   Data   RO         1221    .rodata.OLED_F8x16  oled.o
+    0x0800521c   0x0800521c   0x00000004   Data   RO         1329    .rodata.conv1d_1_bias_shift  main.o
+    0x08005220   0x08005220   0x00000028   Data   RO         1330    .rodata.conv1d_1_config  main.o
+    0x08005248   0x08005248   0x00000004   Data   RO         1328    .rodata.conv1d_1_output_shift  main.o
+    0x0800524c   0x0800524c   0x00000004   Data   RO         1316    .rodata.conv1d_bias_shift  main.o
+    0x08005250   0x08005250   0x00000028   Data   RO         1317    .rodata.conv1d_config  main.o
+    0x08005278   0x08005278   0x00000004   Data   RO         1315    .rodata.conv1d_output_shift  main.o
+    0x0800527c   0x0800527c   0x00000040   Data   RO         1620    .rodata.default_activation_names  nnom.o
+    0x080052bc   0x080052bc   0x00000020   Data   RO         1621    .rodata.default_cell_names  nnom.o
+    0x080052dc   0x080052dc   0x0000018c   Data   RO         1619    .rodata.default_layer_names  nnom.o
+    0x08005468   0x08005468   0x00000004   Data   RO         1344    .rodata.dense_bias_shift  main.o
+    0x0800546c   0x0800546c   0x00000018   Data   RO         1345    .rodata.dense_config  main.o
+    0x08005484   0x08005484   0x00000004   Data   RO         1343    .rodata.dense_output_shift  main.o
+    0x08005488   0x08005488   0x00000004   Data   RO         1332    .rodata.flatten_config  main.o
+    0x0800548c   0x0800548c   0x00000008   Data   RO         1304    .rodata.input_1_config  main.o
+    0x08005494   0x08005494   0x00000010   Data   RO         1331    .rodata.max_pooling1d_config  main.o
+    0x080054a4   0x080054a4   0x00000008   Data   RO         1352    .rodata.output0_config  main.o
+    0x080054ac   0x080054ac   0x00000004   Data   RO         1346    .rodata.softmax_config  main.o
+    0x080054b0   0x080054b0   0x00000044   Data   RO         1303    .rodata.str1.1      main.o
+    0x080054f4   0x080054f4   0x00000384   Data   RO         1626    .rodata.str1.1      nnom.o
+    0x08005878   0x08005878   0x00000014   Data   RO         1327    .rodata.tensor_conv1d_1_bias_0  main.o
+    0x0800588c   0x0800588c   0x0000000f   Data   RO         1323    .rodata.tensor_conv1d_1_bias_0_data  main.o
+    0x0800589b   0x0800589b   0x00000001   PAD
+    0x0800589c   0x0800589c   0x00000004   Data   RO         1325    .rodata.tensor_conv1d_1_bias_0_dec  main.o
+    0x080058a0   0x080058a0   0x00000002   Data   RO         1324    .rodata.tensor_conv1d_1_bias_0_dim  main.o
+    0x080058a2   0x080058a2   0x00000002   PAD
+    0x080058a4   0x080058a4   0x00000004   Data   RO         1326    .rodata.tensor_conv1d_1_bias_0_offset  main.o
+    0x080058a8   0x080058a8   0x00000014   Data   RO         1322    .rodata.tensor_conv1d_1_kernel_0  main.o
+    0x080058bc   0x080058bc   0x00000546   Data   RO         1318    .rodata.tensor_conv1d_1_kernel_0_data  main.o
+    0x08005e02   0x08005e02   0x00000002   PAD
+    0x08005e04   0x08005e04   0x00000004   Data   RO         1320    .rodata.tensor_conv1d_1_kernel_0_dec  main.o
+    0x08005e08   0x08005e08   0x00000006   Data   RO         1319    .rodata.tensor_conv1d_1_kernel_0_dim  main.o
+    0x08005e0e   0x08005e0e   0x00000002   PAD
+    0x08005e10   0x08005e10   0x00000004   Data   RO         1321    .rodata.tensor_conv1d_1_kernel_0_offset  main.o
+    0x08005e14   0x08005e14   0x00000014   Data   RO         1314    .rodata.tensor_conv1d_bias_0  main.o
+    0x08005e28   0x08005e28   0x0000001e   Data   RO         1310    .rodata.tensor_conv1d_bias_0_data  main.o
+    0x08005e46   0x08005e46   0x00000002   PAD
+    0x08005e48   0x08005e48   0x00000004   Data   RO         1312    .rodata.tensor_conv1d_bias_0_dec  main.o
+    0x08005e4c   0x08005e4c   0x00000002   Data   RO         1311    .rodata.tensor_conv1d_bias_0_dim  main.o
+    0x08005e4e   0x08005e4e   0x00000002   PAD
+    0x08005e50   0x08005e50   0x00000004   Data   RO         1313    .rodata.tensor_conv1d_bias_0_offset  main.o
+    0x08005e54   0x08005e54   0x00000014   Data   RO         1309    .rodata.tensor_conv1d_kernel_0  main.o
+    0x08005e68   0x08005e68   0x0000010e   Data   RO         1305    .rodata.tensor_conv1d_kernel_0_data  main.o
+    0x08005f76   0x08005f76   0x00000002   PAD
+    0x08005f78   0x08005f78   0x00000004   Data   RO         1307    .rodata.tensor_conv1d_kernel_0_dec  main.o
+    0x08005f7c   0x08005f7c   0x00000006   Data   RO         1306    .rodata.tensor_conv1d_kernel_0_dim  main.o
+    0x08005f82   0x08005f82   0x00000002   PAD
+    0x08005f84   0x08005f84   0x00000004   Data   RO         1308    .rodata.tensor_conv1d_kernel_0_offset  main.o
+    0x08005f88   0x08005f88   0x00000014   Data   RO         1342    .rodata.tensor_dense_bias_0  main.o
+    0x08005f9c   0x08005f9c   0x0000000d   Data   RO         1338    .rodata.tensor_dense_bias_0_data  main.o
+    0x08005fa9   0x08005fa9   0x00000003   PAD
+    0x08005fac   0x08005fac   0x00000004   Data   RO         1340    .rodata.tensor_dense_bias_0_dec  main.o
+    0x08005fb0   0x08005fb0   0x00000002   Data   RO         1339    .rodata.tensor_dense_bias_0_dim  main.o
+    0x08005fb2   0x08005fb2   0x00000002   PAD
+    0x08005fb4   0x08005fb4   0x00000004   Data   RO         1341    .rodata.tensor_dense_bias_0_offset  main.o
+    0x08005fb8   0x08005fb8   0x00000014   Data   RO         1337    .rodata.tensor_dense_kernel_0  main.o
+    0x08005fcc   0x08005fcc   0x000003cf   Data   RO         1333    .rodata.tensor_dense_kernel_0_data  main.o
+    0x0800639b   0x0800639b   0x00000001   PAD
+    0x0800639c   0x0800639c   0x00000004   Data   RO         1335    .rodata.tensor_dense_kernel_0_dec  main.o
+    0x080063a0   0x080063a0   0x00000004   Data   RO         1334    .rodata.tensor_dense_kernel_0_dim  main.o
+    0x080063a4   0x080063a4   0x00000004   Data   RO         1336    .rodata.tensor_dense_kernel_0_offset  main.o
+    0x080063a8   0x080063a8   0x00000014   Data   RO         1302    .rodata.tensor_input_1  main.o
+    0x080063bc   0x080063bc   0x00000004   Data   RO         1299    .rodata.tensor_input_1_dec  main.o
+    0x080063c0   0x080063c0   0x00000004   Data   RO         1298    .rodata.tensor_input_1_dim  main.o
+    0x080063c4   0x080063c4   0x00000004   Data   RO         1300    .rodata.tensor_input_1_offset  main.o
+    0x080063c8   0x080063c8   0x00000014   Data   RO         1351    .rodata.tensor_output0  main.o
+    0x080063dc   0x080063dc   0x00000004   Data   RO         1348    .rodata.tensor_output0_dec  main.o
+    0x080063e0   0x080063e0   0x00000002   Data   RO         1347    .rodata.tensor_output0_dim  main.o
+    0x080063e2   0x080063e2   0x00000002   PAD
+    0x080063e4   0x080063e4   0x00000004   Data   RO         1349    .rodata.tensor_output0_offset  main.o
+    0x080063e8   0x080063e8   0x00000020   Data   RO         2547    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08006428, Size: 0x00002d98, Max: 0x00005000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08006408, Size: 0x00002d98, Max: 0x00005000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x08006428   0x00000004   Data   RW         2503    .data               mc_w.l(stdout.o)
-    0x20000004   0x0800642c   0x00000001   Data   RW         1345    .data.model_output  main.o
-    0x20000005   0x0800642d   0x00000008   Data   RW         1347    .data.turn_off      main.o
-    0x2000000d   0x08006435   0x00000008   Data   RW         1346    .data.turn_on       main.o
-    0x20000015   0x0800643d   0x00000003   PAD
-    0x20000018        -       0x00000004   Zero   RW         1350    .bss.model          main.o
-    0x2000001c        -       0x00000708   Zero   RW         1349    .bss.mpu            main.o
-    0x20000724        -       0x00000004   Zero   RW         1348    .bss.mpustatus      main.o
-    0x20000728        -       0x000001c2   Zero   RW         1293    .bss.nnom_input_data  main.o
-    0x200008ea   0x0800643d   0x00000002   PAD
-    0x200008ec        -       0x00000004   Zero   RW         1614    .bss.nnom_memory_taken  nnom.o
-    0x200008f0        -       0x00000088   Zero   RW         1352    .bss.nnom_model_create.model  main.o
-    0x20000978        -       0x0000000d   Zero   RW         1342    .bss.nnom_output_data  main.o
-    0x20000985   0x0800643d   0x00000003   PAD
-    0x20000988        -       0x00000004   Zero   RW         1615    .bss.nnom_static_buf  nnom.o
-    0x2000098c        -       0x00000004   Zero   RW         1617    .bss.nnom_static_buf_curr  nnom.o
-    0x20000990        -       0x00000004   Zero   RW         1616    .bss.nnom_static_buf_size  nnom.o
-    0x20000994        -       0x00002000   Zero   RW         1351    .bss.static_buf     main.o
-    0x20002994   0x0800643d   0x00000004   PAD
+    0x20000000   0x08006408   0x00000004   Data   RW         2511    .data               mc_w.l(stdout.o)
+    0x20000004   0x0800640c   0x00000001   Data   RW         1353    .data.model_output  main.o
+    0x20000005   0x0800640d   0x00000008   Data   RW         1355    .data.turn_off      main.o
+    0x2000000d   0x08006415   0x00000008   Data   RW         1354    .data.turn_on       main.o
+    0x20000015   0x0800641d   0x00000003   PAD
+    0x20000018        -       0x00000004   Zero   RW         1358    .bss.model          main.o
+    0x2000001c        -       0x00000708   Zero   RW         1357    .bss.mpu            main.o
+    0x20000724        -       0x00000004   Zero   RW         1356    .bss.mpustatus      main.o
+    0x20000728        -       0x000001c2   Zero   RW         1301    .bss.nnom_input_data  main.o
+    0x200008ea   0x0800641d   0x00000002   PAD
+    0x200008ec        -       0x00000004   Zero   RW         1622    .bss.nnom_memory_taken  nnom.o
+    0x200008f0        -       0x00000088   Zero   RW         1360    .bss.nnom_model_create.model  main.o
+    0x20000978        -       0x0000000d   Zero   RW         1350    .bss.nnom_output_data  main.o
+    0x20000985   0x0800641d   0x00000003   PAD
+    0x20000988        -       0x00000004   Zero   RW         1623    .bss.nnom_static_buf  nnom.o
+    0x2000098c        -       0x00000004   Zero   RW         1625    .bss.nnom_static_buf_curr  nnom.o
+    0x20000990        -       0x00000004   Zero   RW         1624    .bss.nnom_static_buf_size  nnom.o
+    0x20000994        -       0x00002000   Zero   RW         1359    .bss.static_buf     main.o
+    0x20002994   0x0800641d   0x00000004   PAD
     0x20002998        -       0x00000400   Zero   RW            1    STACK               startup_stm32f10x_md.o
 
 
@@ -4542,9 +4566,9 @@ Image component sizes
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
        106          0          0          0          0       3142   key.o
-      1048         88       3141         17      10599      10455   main.o
+      1020         76       3141         17      10599      11148   main.o
        114          0          0          0          0       3201   misc.o
-       792          0          0          0          0       5715   mpu6050.o
+       792          0          0          0          0       6055   mpu6050.o
       3712        452       1392          0         16      22947   nnom.o
         82          0          0          0          0      12663   nnom_activation.o
         70          0          0          0          0       4798   nnom_baselayer.o
@@ -4571,7 +4595,7 @@ Image component sizes
        268          0          0          0          0       2574   system_stm32f10x.o
 
     ----------------------------------------------------------------------
-     14448        584       6364         20      11648     257291   Object Totals
+     14420        572       6364         20      11648     258324   Object Totals
          0          0         32          0          0          0   (incl. Generated)
        116          0         23          3          9          0   (incl. Padding)
 
@@ -4644,15 +4668,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     19272        720       6364         24      11648     258359   Grand Totals
-     19272        720       6364         24      11648     258359   ELF Image Totals
-     19272        720       6364         24          0          0   ROM Totals
+     19244        708       6364         24      11648     259392   Grand Totals
+     19244        708       6364         24      11648     259392   ELF Image Totals
+     19244        708       6364         24          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                25636 (  25.04kB)
+    Total RO  Size (Code + RO Data)                25608 (  25.01kB)
     Total RW  Size (RW Data + ZI Data)             11672 (  11.40kB)
-    Total ROM Size (Code + RO Data + RW Data)      25660 (  25.06kB)
+    Total ROM Size (Code + RO Data + RW Data)      25632 (  25.03kB)
 
 ==============================================================================
 

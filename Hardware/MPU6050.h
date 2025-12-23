@@ -11,4 +11,6 @@ uint8_t MPU6050_GetID(void);
 void MPU6050_GetData(int16_t *AccX, int16_t *AccY, int16_t *AccZ, 
 						int16_t *GyroX, int16_t *GyroY, int16_t *GyroZ);
 void MPU6050_GetDataArray(MPU6050Data *mpu6050data,int16_t count);
+void MPU6050_MotionDetection_Init(uint8_t Threshold, uint8_t Duration);
+
 #endif

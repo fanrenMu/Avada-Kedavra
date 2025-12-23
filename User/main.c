@@ -7,15 +7,18 @@ int main(void)
 	while (1)
 	{
 		if(mpustatus == SAMPLING){
+			//Start_Timer();
 			OLED_ShowString(2,1,"ing");
 			MPU6050_GetDataArray(mpu,150);
-			mpustatus = SAMPLED;
+			mpustatus = AVAILABLE;
 			OLED_ShowString(2,4,"ed");       //get data from imu
-			
+			//Stop_And_Print_Timer();
+
 			model_feed_data();
-			OLED_ShowString(3,1,"feed");
+			//OLED_ShowString(3,1,"feed");
 			model_run(model);
-			OLED_ShowString(3,6,"run");      //feed data to model
+			//OLED_ShowString(3,6,"run");      //feed data to model
+			
 			
 			model_output = model_get_output();
 			OLED_ShowNum(4,1,(uint32_t)model_output,2);
@@ -38,9 +41,11 @@ int main(void)
 			}
 
 		}
-
+//		if(mpustatus == AVAILABLE){
+//			Enter_Lowpower_Mode();
+//		}
 	}
-
+		
 }
 
 void model_feed_data(void){
@@ -83,6 +88,7 @@ void SYS_INIT(void){
 		Serial_Init();
 		MPU6050_Init();
 		Key_Init();
+//		MPU6050_MotionDetection_Init(THRESHOLD,DURATION);
 		mpustatus = AVAILABLE;         
 		OLED_ShowString(1,1,"init");   //hardware init
 	
@@ -103,10 +109,47 @@ int8_t model_get_output(void){
 }
 
 void EXTI15_10_IRQHandler(void){
-	if(EXTI_GetITStatus(EXTI_Line12)==SET){
+	if(EXTI_GetITStatus(EXTI_Line12)==SET){  //action int
 		
 		mpustatus = SAMPLING;
 
 		EXTI_ClearITPendingBit(EXTI_Line12);
 	}
+	
+//	if(EXTI_GetITStatus(EXTI_Line13)==SET){  //mpu6050 wake up int
+//		if (MPU6050_ReadReg(0x3A) & 0x40) {
+//			OLED_ShowString(3,1,"wake");
+////			mpustatus = SAMPLING;
+//		}
+//		EXTI_ClearITPendingBit(EXTI_Line13);
+//	}
+}
+
+
+void Start_Timer(void) {
+    SysTick->LOAD = 72000 - 1;
+    SysTick->VAL = 0;
+    SysTick->CTRL |= 1;
+}
+
+void Stop_And_Print_Timer(void) {
+    uint32_t elapsed_ticks = 72000 - SysTick->VAL;
+    float elapsed_ms = (float)elapsed_ticks / 72000.0f * 1000.0f;
+
+    SysTick->CTRL &= ~1;
+
+    //printf("Reasoning Time: %.3f ms\n", elapsed_ms);
+		OLED_ShowNum(3,1,elapsed_ms,4);
+}
+
+void Enter_Lowpower_Mode(void){
+		OLED_Clear();
+	
+		RCC_APB1PeriphClockCmd(RCC_APB1Periph_PWR, ENABLE);
+    
+    PWR_ClearFlag(PWR_FLAG_WU);
+    
+    PWR_EnterSTOPMode(PWR_Regulator_LowPower, PWR_STOPEntry_WFI);
+    
+    SystemInit();
 }

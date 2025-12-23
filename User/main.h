@@ -1,4 +1,5 @@
 #include "stm32f10x.h"                  // Device header
+#include "stm32f10x_pwr.h"
 #include "Delay.h"
 #include "OLED.h"
 #include "Serial.h"
@@ -8,9 +9,11 @@
 #include "weights.h"
 #include "Key.h"
 
+
 #define AVAILABLE 0
 #define SAMPLING 1
-#define SAMPLED 2
+#define THRESHOLD 30
+#define DURATION 7
 #ifdef NNOM_USING_STATIC_MEMORY
 	uint8_t static_buf[1024 * 8];
 #endif //NNOM_USING_STATIC_MEMORY
@@ -44,4 +47,6 @@ uint8_t turn_off[]={0x68,0x08,0x00,0xFF,0x12,0x01,0x12,0x16};
 void model_feed_data(void);
 void SYS_INIT(void);
 int8_t model_get_output(void);
-
+void Start_Timer(void);
+void Stop_And_Print_Timer(void);
+void Enter_Lowpower_Mode(void);

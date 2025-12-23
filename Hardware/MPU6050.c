@@ -92,7 +92,35 @@ void MPU6050_Init(void)
 	MPU6050_WriteReg(MPU6050_CONFIG, 0x06);
 	MPU6050_WriteReg(MPU6050_GYRO_CONFIG, 0x18);
 	MPU6050_WriteReg(MPU6050_ACCEL_CONFIG, 0x18);
+	
+	//mpu6050_int_init
+//	RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO,ENABLE);
+//	GPIO_InitTypeDef GPIO_Init_InitStructure;
+//	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; 
+//	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13;    
+//	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+//	GPIO_Init(GPIOB, &GPIO_InitStructure);
+//	
+//	GPIO_EXTILineConfig(GPIO_PortSourceGPIOB, GPIO_PinSource13);
+//	
+//	EXTI_InitTypeDef EXTI_InitStructure;
+//	EXTI_InitStructure.EXTI_Line = EXTI_Line13;            
+//	EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;   
+//	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling; 
+//	EXTI_InitStructure.EXTI_LineCmd = ENABLE;             
+//	EXTI_Init(&EXTI_InitStructure);
+//	
+//	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2); 
+//	
+//	NVIC_InitTypeDef NVIC_InitStructure;
+//	NVIC_InitStructure.NVIC_IRQChannel = EXTI15_10_IRQn;   
+//	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1; 
+//	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;      
+//	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+//	NVIC_Init(&NVIC_InitStructure);
 }
+
+
 
 uint8_t MPU6050_GetID(void)
 {
@@ -134,4 +162,25 @@ void MPU6050_GetDataArray(MPU6050Data *mpu6050data,int16_t count){
         MPU6050_GetData(&mpu6050data[i].AX, &mpu6050data[i].AY, &mpu6050data[i].AZ,
                        &mpu6050data[i].GX, &mpu6050data[i].GY, &mpu6050data[i].GZ);
 	}
+}
+
+void MPU6050_MotionDetection_Init(uint8_t Threshold, uint8_t Duration)
+{
+    uint8_t accel_cfg = MPU6050_ReadReg(MPU6050_ACCEL_CONFIG);
+    accel_cfg |= 0x01; 
+    MPU6050_WriteReg(MPU6050_ACCEL_CONFIG, accel_cfg);
+
+
+    MPU6050_WriteReg(MPU6050_MOT_THR, Threshold);
+
+
+    MPU6050_WriteReg(MPU6050_MOT_DUR, Duration);
+
+
+    MPU6050_WriteReg(MPU6050_MOT_DETECT_CTRL, 0x15);
+
+
+    MPU6050_WriteReg(MPU6050_INT_PIN_CFG, 0x10);
+
+    MPU6050_WriteReg(MPU6050_INT_ENABLE, 0x40);
 }
