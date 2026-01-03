@@ -8,10 +8,15 @@ int main(void)
 	{
 		if(mpustatus == SAMPLING){
 			//Start_Timer();
-			OLED_ShowString(2,1,"ing");
+			//OLED_ShowString(2,1,"ing");
+			
+//			Serial_Printf("ing");
+//			Serial_Printf("\n");
 			MPU6050_GetDataArray(mpu,150);
 			mpustatus = AVAILABLE;
-			OLED_ShowString(2,4,"ed");       //get data from imu
+			//OLED_ShowString(2,4,"ed");       //get data from imu
+//			Serial_Printf("ed");
+//			Serial_Printf("\n");
 			//Stop_And_Print_Timer();
 
 			model_feed_data();
@@ -21,22 +26,33 @@ int main(void)
 			
 			
 			model_output = model_get_output();
-			OLED_ShowNum(4,1,(uint32_t)model_output,2);
+			//OLED_ShowNum(4,1,(uint32_t)model_output,2);
+//			Serial_Printf("model_output: d%",(uint32_t)model_output);
+//			Serial_Printf("\n");
+			
 			
 			switch(model_output){
 				case Unrecognized:
-					OLED_ShowString(4,4,"Unrecognized");
+					//OLED_ShowString(4,4,"Unrecognized");
+					Serial_Printf("Unrecognized");
+					Serial_Printf("\n");
 					break;
 				case Circle:
-					Serial_SendArray(turn_on,8);
-					OLED_ShowString(4,4,"Circle");
+					//Serial_SendArray(turn_on,8);
+					//OLED_ShowString(4,4,"Circle");
+					Serial_Printf("circle");
+					Serial_Printf("\n");				
 				  break;
 				case Wave:
-					Serial_SendArray(turn_off,8);
-					OLED_ShowString(4,4,"Wave");
+					//Serial_SendArray(turn_off,8);
+					//OLED_ShowString(4,4,"Wave");
+					Serial_Printf("Wave");
+					Serial_Printf("\n");				
 				  break;
 				default:
-					OLED_ShowString(4,4,"none");
+					//OLED_ShowString(4,4,"none");
+					Serial_Printf("none");
+					Serial_Printf("\n");			
 					break;
 			}
 
@@ -47,6 +63,7 @@ int main(void)
 	}
 		
 }
+
 
 void model_feed_data(void){
 	const double scale = 32;
@@ -90,10 +107,10 @@ void SYS_INIT(void){
 		Key_Init();
 //		MPU6050_MotionDetection_Init(THRESHOLD,DURATION);
 		mpustatus = AVAILABLE;         
-		OLED_ShowString(1,1,"init");   //hardware init
+		//OLED_ShowString(1,1,"init");   //hardware init
 	
 		model = nnom_model_create();
-		OLED_ShowString(1,5,"create"); //model init
+		//OLED_ShowString(1,5,"create"); //model init
 }
 
 int8_t model_get_output(void){
@@ -108,12 +125,12 @@ int8_t model_get_output(void){
 		return ret;
 }
 
-void EXTI15_10_IRQHandler(void){
-	if(EXTI_GetITStatus(EXTI_Line12)==SET){  //action int
+void EXTI0_IRQHandler(void){   
+	if(EXTI_GetITStatus(EXTI_Line0)==SET){  //action int
 		
 		mpustatus = SAMPLING;
 
-		EXTI_ClearITPendingBit(EXTI_Line12);
+		EXTI_ClearITPendingBit(EXTI_Line0);
 	}
 	
 //	if(EXTI_GetITStatus(EXTI_Line13)==SET){  //mpu6050 wake up int
@@ -142,14 +159,14 @@ void Stop_And_Print_Timer(void) {
 		OLED_ShowNum(3,1,elapsed_ms,4);
 }
 
-void Enter_Lowpower_Mode(void){
-		OLED_Clear();
-	
-		RCC_APB1PeriphClockCmd(RCC_APB1Periph_PWR, ENABLE);
-    
-    PWR_ClearFlag(PWR_FLAG_WU);
-    
-    PWR_EnterSTOPMode(PWR_Regulator_LowPower, PWR_STOPEntry_WFI);
-    
-    SystemInit();
-}
+//void Enter_Lowpower_Mode(void){
+//		OLED_Clear();
+//	
+//		RCC_APB1PeriphClockCmd(RCC_APB1Periph_PWR, ENABLE);
+//    
+//    PWR_ClearFlag(PWR_FLAG_WU);
+//    
+//    PWR_EnterSTOPMode(PWR_Regulator_LowPower, PWR_STOPEntry_WFI);
+//    
+//    SystemInit();
+//}

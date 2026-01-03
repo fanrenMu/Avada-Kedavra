@@ -11,4 +11,4 @@
   Library\stm32f10x_rtc.h Library\stm32f10x_sdio.h \
   Library\stm32f10x_spi.h Library\stm32f10x_tim.h \
   Library\stm32f10x_usart.h Library\stm32f10x_wwdg.h Library\misc.h \
-  Hardware\MPU6050_Reg.h System\Data.h
+  Hardware\MPU6050_Reg.h Hardware\Serial.h System\Data.h
