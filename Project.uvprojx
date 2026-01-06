@@ -744,6 +744,26 @@
               <FileType>5</FileType>
               <FilePath>.\Hardware\MPU6050_Reg.h</FilePath>
             </File>
+            <File>
+              <FileName>IR_Capture.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Hardware\IR_Capture.c</FilePath>
+            </File>
+            <File>
+              <FileName>hongwai.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Hardware\hongwai.c</FilePath>
+            </File>
+            <File>
+              <FileName>hongwai.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Hardware\hongwai.h</FilePath>
+            </File>
+            <File>
+              <FileName>IR_Capture.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Hardware\IR_Capture.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
