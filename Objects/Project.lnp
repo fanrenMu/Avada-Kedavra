@@ -32,6 +32,8 @@
 ".\objects\mpu6050.o"
 ".\objects\ir_capture.o"
 ".\objects\hongwai.o"
+".\objects\spi.o"
+".\objects\w25q64.o"
 ".\objects\main.o"
 ".\objects\stm32f10x_it.o"
 ".\objects\nnom_local.o"

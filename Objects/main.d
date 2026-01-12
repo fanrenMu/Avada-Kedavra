@@ -38,4 +38,5 @@
   CNN\nnom_lib\inc\layers\nnom_simple_cell.h \
   CNN\nnom_lib\inc\layers\nnom_lstm_cell.h \
   CNN\nnom_lib\inc\layers\nnom_gru_cell.h CNN\nnom_lib\inc\nnom_utils.h \
-  CNN\weights.h Hardware\Key.h Hardware\hongwai.h Hardware\IR_Capture.h
+  CNN\weights.h Hardware\Key.h Hardware\hongwai.h Hardware\IR_Capture.h \
+  Hardware\W25Q64.h Hardware\SPI.h

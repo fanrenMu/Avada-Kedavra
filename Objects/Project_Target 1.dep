@@ -885,7 +885,7 @@ I (System\Data.h)(0x6949531E)
 F (.\Hardware\MPU6050.h)(0x694AAA23)()
 F (.\Hardware\MPU6050_Reg.h)(0x694AAA23)()
 F (.\Hardware\IR_Capture.c)(0x695CDC67)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ./Start -I ./Library -I ./User -I ./System -I ./Hardware -I ./CNN/nnom_lib/inc -I ./CNN/nnom_lib/port -I ./CNN/nnom_lib/src -I ./CNN -I ./CNN/nnom_lib/inc/layers-IE:/Keil_v5_43/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="543" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ./objects/ir_capture.o -MMD)
-I (Hardware\IR_Capture.h)(0x695CBA2F)
+I (Hardware\IR_Capture.h)(0x695CEE4B)
 I (Start\stm32f10x.h)(0x6943EE70)
 I (Start\core_cm3.h)(0x69495932)
 I (Start\system_stm32f10x.h)(0x6943EE70)
@@ -913,7 +913,7 @@ I (Library\stm32f10x_tim.h)(0x6943EE70)
 I (Library\stm32f10x_usart.h)(0x6943EE70)
 I (Library\stm32f10x_wwdg.h)(0x6943EE70)
 I (Library\misc.h)(0x6943EE70)
-F (.\Hardware\hongwai.c)(0x695CDC67)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ./Start -I ./Library -I ./User -I ./System -I ./Hardware -I ./CNN/nnom_lib/inc -I ./CNN/nnom_lib/port -I ./CNN/nnom_lib/src -I ./CNN -I ./CNN/nnom_lib/inc/layers-IE:/Keil_v5_43/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="543" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ./objects/hongwai.o -MMD)
+F (.\Hardware\hongwai.c)(0x69634FB8)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ./Start -I ./Library -I ./User -I ./System -I ./Hardware -I ./CNN/nnom_lib/inc -I ./CNN/nnom_lib/port -I ./CNN/nnom_lib/src -I ./CNN -I ./CNN/nnom_lib/inc/layers-IE:/Keil_v5_43/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="543" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ./objects/hongwai.o -MMD)
 I (Hardware\hongwai.h)(0x695CBA60)
 I (Start\stm32f10x.h)(0x6943EE70)
 I (Start\core_cm3.h)(0x69495932)
@@ -944,9 +944,71 @@ I (Library\stm32f10x_wwdg.h)(0x6943EE70)
 I (Library\misc.h)(0x6943EE70)
 I (System\Delay.h)(0x6949531E)
 F (.\Hardware\hongwai.h)(0x695CBA60)()
-F (.\Hardware\IR_Capture.h)(0x695CBA2F)()
-F (.\User\main.c)(0x695CE854)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ./Start -I ./Library -I ./User -I ./System -I ./Hardware -I ./CNN/nnom_lib/inc -I ./CNN/nnom_lib/port -I ./CNN/nnom_lib/src -I ./CNN -I ./CNN/nnom_lib/inc/layers-IE:/Keil_v5_43/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="543" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ./objects/main.o -MMD)
-I (User\main.h)(0x695CCCC5)
+F (.\Hardware\IR_Capture.h)(0x695CEE4B)()
+F (.\Hardware\SPI.c)(0x692FABF4)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ./Start -I ./Library -I ./User -I ./System -I ./Hardware -I ./CNN/nnom_lib/inc -I ./CNN/nnom_lib/port -I ./CNN/nnom_lib/src -I ./CNN -I ./CNN/nnom_lib/inc/layers-IE:/Keil_v5_43/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="543" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ./objects/spi.o -MMD)
+I (Hardware\SPI.h)(0x692FABF4)
+I (Start\stm32f10x.h)(0x6943EE70)
+I (Start\core_cm3.h)(0x69495932)
+I (Start\system_stm32f10x.h)(0x6943EE70)
+I (User\stm32f10x_conf.h)(0x6943EE70)
+I (Library\stm32f10x_adc.h)(0x6943EE70)
+I (Library\stm32f10x_bkp.h)(0x6943EE70)
+I (Library\stm32f10x_can.h)(0x6943EE70)
+I (Library\stm32f10x_cec.h)(0x6943EE70)
+I (Library\stm32f10x_crc.h)(0x6943EE70)
+I (Library\stm32f10x_dac.h)(0x6943EE70)
+I (Library\stm32f10x_dbgmcu.h)(0x6943EE70)
+I (Library\stm32f10x_dma.h)(0x6943EE70)
+I (Library\stm32f10x_exti.h)(0x6943EE70)
+I (Library\stm32f10x_flash.h)(0x6943EE70)
+I (Library\stm32f10x_fsmc.h)(0x6943EE70)
+I (Library\stm32f10x_gpio.h)(0x6943EE70)
+I (Library\stm32f10x_i2c.h)(0x6943EE70)
+I (Library\stm32f10x_iwdg.h)(0x6943EE70)
+I (Library\stm32f10x_pwr.h)(0x6943EE70)
+I (Library\stm32f10x_rcc.h)(0x6943EE70)
+I (Library\stm32f10x_rtc.h)(0x6943EE70)
+I (Library\stm32f10x_sdio.h)(0x6943EE70)
+I (Library\stm32f10x_spi.h)(0x6943EE70)
+I (Library\stm32f10x_tim.h)(0x6943EE70)
+I (Library\stm32f10x_usart.h)(0x6943EE70)
+I (Library\stm32f10x_wwdg.h)(0x6943EE70)
+I (Library\misc.h)(0x6943EE70)
+F (.\Hardware\SPI.h)(0x692FABF4)()
+F (.\Hardware\W25Q64.c)(0x6963C364)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ./Start -I ./Library -I ./User -I ./System -I ./Hardware -I ./CNN/nnom_lib/inc -I ./CNN/nnom_lib/port -I ./CNN/nnom_lib/src -I ./CNN -I ./CNN/nnom_lib/inc/layers-IE:/Keil_v5_43/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="543" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ./objects/w25q64.o -MMD)
+I (Hardware\W25Q64.h)(0x696360DC)
+I (Start\stm32f10x.h)(0x6943EE70)
+I (Start\core_cm3.h)(0x69495932)
+I (Start\system_stm32f10x.h)(0x6943EE70)
+I (User\stm32f10x_conf.h)(0x6943EE70)
+I (Library\stm32f10x_adc.h)(0x6943EE70)
+I (Library\stm32f10x_bkp.h)(0x6943EE70)
+I (Library\stm32f10x_can.h)(0x6943EE70)
+I (Library\stm32f10x_cec.h)(0x6943EE70)
+I (Library\stm32f10x_crc.h)(0x6943EE70)
+I (Library\stm32f10x_dac.h)(0x6943EE70)
+I (Library\stm32f10x_dbgmcu.h)(0x6943EE70)
+I (Library\stm32f10x_dma.h)(0x6943EE70)
+I (Library\stm32f10x_exti.h)(0x6943EE70)
+I (Library\stm32f10x_flash.h)(0x6943EE70)
+I (Library\stm32f10x_fsmc.h)(0x6943EE70)
+I (Library\stm32f10x_gpio.h)(0x6943EE70)
+I (Library\stm32f10x_i2c.h)(0x6943EE70)
+I (Library\stm32f10x_iwdg.h)(0x6943EE70)
+I (Library\stm32f10x_pwr.h)(0x6943EE70)
+I (Library\stm32f10x_rcc.h)(0x6943EE70)
+I (Library\stm32f10x_rtc.h)(0x6943EE70)
+I (Library\stm32f10x_sdio.h)(0x6943EE70)
+I (Library\stm32f10x_spi.h)(0x6943EE70)
+I (Library\stm32f10x_tim.h)(0x6943EE70)
+I (Library\stm32f10x_usart.h)(0x6943EE70)
+I (Library\stm32f10x_wwdg.h)(0x6943EE70)
+I (Library\misc.h)(0x6943EE70)
+I (Hardware\SPI.h)(0x692FABF4)
+I (Hardware\Serial.h)(0x6949594B)
+F (.\Hardware\W25Q64.h)(0x696360DC)()
+F (.\User\main.c)(0x69648DAB)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ./Start -I ./Library -I ./User -I ./System -I ./Hardware -I ./CNN/nnom_lib/inc -I ./CNN/nnom_lib/port -I ./CNN/nnom_lib/src -I ./CNN -I ./CNN/nnom_lib/inc/layers-IE:/Keil_v5_43/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="543" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ./objects/main.o -MMD)
+I (User\main.h)(0x696463BF)
 I (Start\stm32f10x.h)(0x6943EE70)
 I (Start\core_cm3.h)(0x69495932)
 I (Start\system_stm32f10x.h)(0x6943EE70)
@@ -1009,10 +1071,12 @@ I (CNN\nnom_lib\inc\layers\nnom_simple_cell.h)(0x6949531E)
 I (CNN\nnom_lib\inc\layers\nnom_lstm_cell.h)(0x6949531E)
 I (CNN\nnom_lib\inc\layers\nnom_gru_cell.h)(0x6949531E)
 I (CNN\nnom_lib\inc\nnom_utils.h)(0x6949531E)
-I (CNN\weights.h)(0x695CDF65)
+I (CNN\weights.h)(0x6964632F)
 I (Hardware\Key.h)(0x6949531E)
 I (Hardware\hongwai.h)(0x695CBA60)
-I (Hardware\IR_Capture.h)(0x695CBA2F)
+I (Hardware\IR_Capture.h)(0x695CEE4B)
+I (Hardware\W25Q64.h)(0x696360DC)
+I (Hardware\SPI.h)(0x692FABF4)
 F (.\User\stm32f10x_conf.h)(0x6943EE70)()
 F (.\User\stm32f10x_it.c)(0x6943EE70)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ./Start -I ./Library -I ./User -I ./System -I ./Hardware -I ./CNN/nnom_lib/inc -I ./CNN/nnom_lib/port -I ./CNN/nnom_lib/src -I ./CNN -I ./CNN/nnom_lib/inc/layers-IE:/Keil_v5_43/ARM/PACK/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="543" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ./objects/stm32f10x_it.o -MMD)
 I (User\stm32f10x_it.h)(0x6943EE70)
@@ -1044,8 +1108,8 @@ I (Library\stm32f10x_usart.h)(0x6943EE70)
 I (Library\stm32f10x_wwdg.h)(0x6943EE70)
 I (Library\misc.h)(0x6943EE70)
 F (.\User\stm32f10x_it.h)(0x6943EE70)()
-F (.\User\main.h)(0x695CCCC5)()
-F (.\CNN\weights.h)(0x695CDF65)()
+F (.\User\main.h)(0x696463BF)()
+F (.\CNN\weights.h)(0x6964632F)()
 F (.\CNN\nnom_lib\inc\layers\nnom_activation.h)(0x6949531E)()
 F (.\CNN\nnom_lib\inc\layers\nnom_avgpool.h)(0x6949531E)()
 F (.\CNN\nnom_lib\inc\layers\nnom_baselayer.h)(0x6949531E)()
